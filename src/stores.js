@@ -1,4 +1,5 @@
 import { writable } from "svelte/store";
+import { v4 as uuidv4 } from "uuid";
 
 //- Page Store
 export const currentPage = writable("manage-tasks");
@@ -12,15 +13,19 @@ const createTasks = () => {
 	]);
 	return {
 		subscribe,
-		add: (task) => update((tasks) => [task, ...tasks]),
-		update: (taskId, editedTaskContent) =>
+		add: (taskContent) =>
+			update((tasks) => [
+				{ id: uuidv4(), content: taskContent, isCheckedOff: false },
+				...tasks,
+			]),
+		edit: (taskId, editedTaskContent) =>
 			update((tasks) => {
 				const targetTask = tasks.find((task) => task.id === taskId);
 				targetTask.content = editedTaskContent;
 				return tasks;
 			}),
 		remove: (taskId) =>
-			update((tasks) => tasks.filter((task) => task.id === taskId)),
+			update((tasks) => tasks.filter((task) => task.id !== taskId)),
 		checkOff: (taskId) =>
 			update((tasks) => {
 				const targetTask = tasks.find((task) => task.id === taskId);
@@ -34,13 +39,13 @@ const createTasks = () => {
 export const tasks = createTasks();
 
 //- task
-	//- id
-	//- content
-	//- isCheckedOff
+//- id
+//- content
+//- isCheckedOff
 
 //- bleep
-	//- id
-	//- content
-	//- minutely/hourly
-	//- isActivated
-	//- clickToConfirm
+//- id
+//- content
+//- minutely/hourly
+//- isActivated
+//- clickToConfirm
