@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 import { v4 as uuidv4 } from "uuid";
 
 //- Page Store
-export const currentPage = writable("manage-tasks");
+export const currentPage = writable("manage-bleeps");
 
 //- Tasks Store
 const createTasks = () => {
@@ -38,14 +38,61 @@ const createTasks = () => {
 
 export const tasks = createTasks();
 
+//- Bleeps Store
+const createBleeps = () => {
+	const { subscribe, set, update } = writable([
+		{
+			id: 1,
+			content: "drink water",
+			interval: "60",
+			clickToConfirm: false,
+			isActive: true,
+		},
+		{
+			id: 2,
+			content: "eye drops",
+			interval: "30",
+			clickToConfirm: false,
+			isActive: true,
+		},
+	]);
+	return {
+		subscribe,
+		add: (newBleep) => {
+			update((bleeps) => [
+				{
+					id: uuidv4(),
+					content: newBleep.content,
+					interval: newBleep.interval,
+					clickToConfirm: false,
+					isActive: true,
+				},
+				...bleeps,
+			]);
+		},
+		edit: (editedBleep) => {
+			update((bleeps) => {
+				const targetBleep = bleeps.find((bleep) => bleep.id === editedBleep.id);
+				targetBleep = { ...targetBleep, ...editedBleep };
+				return bleeps;
+			});
+		},
+		remove: (bleepId) =>
+			update((bleeps) => bleeps.filter((bleep) => bleep.id !== bleepId)),
+		reset: () => set([]),
+	};
+};
+
+export const bleeps = createBleeps();
+
 //- task
-//- id
-//- content
-//- isCheckedOff
+	//- id
+	//- content
+	//- isCheckedOff
 
 //- bleep
-//- id
-//- content
-//- minutely/hourly
-//- isActivated
-//- clickToConfirm
+	//- id
+	//- content
+	//- interval
+	//- clickToConfirm
+	//- isActivated
