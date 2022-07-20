@@ -24,17 +24,33 @@
 
 <nav class={isCollapsed && "is-collapsed"}>
 	<ul>
-		<li data-name="home" on:click={routeHandler}>
+		<li
+			class={$currentPage === "home" && "is-selected"}
+			data-name="home"
+			on:click={routeHandler}
+		>
 			<HomeIcon /><span class={isCollapsed && "is-hidden"}>Home</span>
 		</li>
-		<li data-name="manage-tasks" on:click={routeHandler}>
+		<li
+			class={$currentPage === "manage-tasks" && "is-selected"}
+			data-name="manage-tasks"
+			on:click={routeHandler}
+		>
 			<TasksIcon /><span class={isCollapsed && "is-hidden"}>Manage Tasks</span>
 		</li>
-		<li data-name="manage-bleeps" on:click={routeHandler}>
+		<li
+			class={$currentPage === "manage-bleeps" && "is-selected"}
+			data-name="manage-bleeps"
+			on:click={routeHandler}
+		>
 			<BleepsIcon /><span class={isCollapsed && "is-hidden"}>Manage Bleeps</span
 			>
 		</li>
-		<li data-name="settings" on:click={routeHandler}>
+		<li
+			class={$currentPage === "settings" && "is-selected"}
+			data-name="settings"
+			on:click={routeHandler}
+		>
 			<SettingsIcon /><span class={isCollapsed && "is-hidden"}>Settings</span>
 		</li>
 	</ul>
@@ -70,7 +86,6 @@
 
 	ul {
 		width: 100%;
-		list-style: none;
 	}
 
 	li {
@@ -87,13 +102,14 @@
 		justify-content: center;
 	}
 
-	li > span {
-		margin-left: 10px;
-	}
-
-	li:hover {
+	li:hover,
+	li.is-selected {
 		background-color: rgb(215, 215, 215);
 		color: #747bff;
+	}
+
+	li > span {
+		margin-left: 10px;
 	}
 
 	button {
