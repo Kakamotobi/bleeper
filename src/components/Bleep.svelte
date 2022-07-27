@@ -14,7 +14,7 @@
 	<p class="content">{bleep.content}</p>
 	<slot name="activation" />
 	{#if $currEdittingBleep === bleep.id}
-		<BleepEditBox {bleep} />
+		<BleepEditBox bind:bleep />
 	{/if}
 </div>
 

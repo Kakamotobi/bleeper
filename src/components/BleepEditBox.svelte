@@ -11,12 +11,16 @@
 			bleep.id !== $currEdittingBleep ||
 			evt.target.dataset.id !== $currEdittingBleep
 		) {
-			//- If input value is an empty string, stop.
-			const input = document.getElementById("bleep-content");
-			if (input.value.trim() === "") return;
+			// //- If input value is an empty string, stop.
+			// const input = document.getElementById("bleep-content");
+			// if (input.value.trim() === "") {
+			// 	input.value = bleep.content;
+			// 	console.log(bleep.content);
+			// 	return;
+			// }
 
-			//- Edit store.
-			bleeps.update();
+			// //- Edit store.
+			// bleeps.update();
 
 			//- Close edit box
 			$currEdittingBleep = "";
