@@ -1,6 +1,6 @@
 <script>
 	import BleepEditBox from "./BleepEditBox.svelte";
-	import { currEdittingBleep } from "../stores.js";
+	import { currEdittingBleep } from "../stores/bleepsStore.js";
 
 	export let bleep;
 

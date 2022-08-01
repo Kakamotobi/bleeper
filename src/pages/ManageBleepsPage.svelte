@@ -1,5 +1,5 @@
 <script>
-	import { bleeps } from "../stores.js";
+	import { bleeps } from "../stores/bleepsStore.js";
 	import Section from "../components/Section.svelte";
 	import Bleep from "../components/Bleep.svelte";
 

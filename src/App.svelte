@@ -1,5 +1,5 @@
 <script>
-	import { currentPage } from "./stores.js";
+	import { currentPage } from "./stores/stores.js";
 	import Navbar from "./components/Navbar.svelte";
 	import HomePage from "./pages/HomePage.svelte";
 	import ManageTasksPage from "./pages/ManageTasksPage.svelte";

@@ -1,5 +1,5 @@
 <script>
-	import { tasks } from "../stores.js";
+	import { tasks } from "../stores/tasksStore.js";
 
 	export let task;
 

@@ -1,12 +1,6 @@
 import { writable } from "svelte/store";
 import { v4 as uuidv4 } from "uuid";
 
-//- Page Store
-export const currentPage = writable("manage-bleeps");
-
-//- Currently Editting Bleep Store
-export const currEdittingBleep = writable("");
-
 //- Tasks Store
 const createTasks = () => {
 	const { subscribe, set, update } = writable([
@@ -40,50 +34,3 @@ const createTasks = () => {
 };
 
 export const tasks = createTasks();
-
-//- Bleeps Store
-const createBleeps = () => {
-	const { subscribe, update, set } = writable([
-		{
-			id: "1",
-			content: "drink water",
-			interval: "60",
-			clickToConfirm: false,
-			isActive: true,
-		},
-		{
-			id: "2",
-			content: "eye drops",
-			interval: "30",
-			clickToConfirm: false,
-			isActive: true,
-		},
-		{
-			id: "3",
-			content: "stretch",
-			interval: "60",
-			clickToConfirm: false,
-			isActive: true,
-		},
-	]);
-	return {
-		subscribe,
-		update: () => update((bleeps) => bleeps),
-		set,
-		add: (newBleep) =>
-			update((bleeps) => [
-				{
-					id: uuidv4(),
-					content: newBleep.content,
-					interval: newBleep.interval,
-					clickToConfirm: false,
-					isActive: true,
-				},
-				...bleeps,
-			]),
-		remove: (bleepId) =>
-			update((bleeps) => bleeps.filter((bleep) => bleep.id !== bleepId)),
-	};
-};
-
-export const bleeps = createBleeps();

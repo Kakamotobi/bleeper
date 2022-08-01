@@ -1,5 +1,5 @@
 <script>
-	import { tasks } from "../stores.js";
+	import { tasks } from "../stores/tasksStore.js";
 	import Section from "../components/Section.svelte";
 	import Task from "../components/Task.svelte";
 

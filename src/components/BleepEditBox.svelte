@@ -1,5 +1,5 @@
 <script>
-	import { bleeps, currEdittingBleep } from "../stores.js";
+	import { bleeps, currEdittingBleep } from "../stores/bleepsStore.js";
 	import { isDescendantOf } from "../utils.js";
 
 	export let bleep;
@@ -11,17 +11,6 @@
 			bleep.id !== $currEdittingBleep ||
 			evt.target.dataset.id !== $currEdittingBleep
 		) {
-			// //- If input value is an empty string, stop.
-			// const input = document.getElementById("bleep-content");
-			// if (input.value.trim() === "") {
-			// 	input.value = bleep.content;
-			// 	console.log(bleep.content);
-			// 	return;
-			// }
-
-			// //- Edit store.
-			// bleeps.update();
-
 			//- Close edit box
 			$currEdittingBleep = "";
 		}

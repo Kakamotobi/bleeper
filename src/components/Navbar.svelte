@@ -1,5 +1,5 @@
 <script>
-	import { currentPage } from "../stores.js";
+	import { currentPage } from "../stores/stores.js";
 	import HomeIcon from "../../public/assets/HomeIcon.svelte";
 	import TasksIcon from "../../public/assets/TasksIcon.svelte";
 	import BleepsIcon from "../../public/assets/BleepsIcon.svelte";
