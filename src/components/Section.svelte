@@ -60,6 +60,11 @@
 		font-size: 1rem;
 	}
 
+	.main-section :global(form .bleep-interval-input) {
+		flex-grow: 0;
+		width: 60px;
+	}
+
 	.main-section :global(form button) {
 		width: 12%;
 		max-width: 50px;
