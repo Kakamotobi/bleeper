@@ -1,8 +1,14 @@
 <script>
-	import { tasks } from "../stores/tasksStore.js";
+	import {
+		tasks,
+		resetAfter,
+		resetAfterTime,
+		keepUnfinishedTasks,
+	} from "../stores/tasksStore.js";
 	import Section from "../components/Section.svelte";
 	import Task from "../components/Task.svelte";
 
+	//- For new task
 	let inputVal;
 
 	const handleSubmit = () => {
@@ -11,6 +17,44 @@
 			tasks.add(newTaskContent);
 			inputVal = "";
 		}
+	};
+
+	//- For configuration
+	let intervalId;
+
+	const setResetTime = () => {
+		if ($resetAfter === true) {
+			//- If there's already an interval in place, return.
+			if (intervalId) return;
+
+			intervalId = setInterval(() => {
+				const date = new Date();
+				const hours = date.getHours().toString().padStart(2, "0");
+				const minutes = date.getMinutes().toString().padStart(2, "0");
+				const currentTime = `${hours}:${minutes}`;
+				if (currentTime === $resetAfterTime) tasks.reset();
+			}, 1000);
+		} else {
+			clearInterval(intervalId);
+			intervalId = null;
+		}
+	};
+
+	const handleResetAfter = () => {
+		$resetAfter = !$resetAfter;
+
+		//- Initialize reset time to midnight.
+		$resetAfterTime = "00:00";
+
+		//- Set interval to reset tasks at time.
+		setResetTime();
+	};
+
+	const handleResetTime = (evt) => {
+		$resetAfterTime = evt.target.value;
+
+		//- Set interval to reset tasks at time.
+		setResetTime();
 	};
 </script>
 
@@ -27,7 +71,7 @@
 		</ul>
 
 		<form slot="form" on:submit|preventDefault={handleSubmit}>
-			<input type="text" bind:value={inputVal} />
+			<input type="text" maxlength="100" bind:value={inputVal} />
 			<button type="submit">Add</button>
 		</form>
 	</Section>
@@ -37,17 +81,31 @@
 
 		<ul slot="content">
 			<li>
-				<input type="checkbox" />
+				<input
+					type="checkbox"
+					checked={$resetAfter}
+					on:change={handleResetAfter}
+				/>
 				Reset after time
-				<ul>
-					<li>
-						Reset at <input type="time" />
-					</li>
-					<li>
-						<input type="checkbox" />
-						Keep unfinished tasks
-					</li>
-				</ul>
+				{#if $resetAfter === true}
+					<ul>
+						<li>
+							Reset at <input
+								type="time"
+								value={$resetAfterTime}
+								on:change={handleResetTime}
+							/>
+						</li>
+						<li>
+							<input
+								type="checkbox"
+								checked={$keepUnfinishedTasks}
+								on:change={() => ($keepUnfinishedTasks = !$keepUnfinishedTasks)}
+							/>
+							Keep unfinished tasks
+						</li>
+					</ul>
+				{/if}
 			</li>
 		</ul>
 	</Section>

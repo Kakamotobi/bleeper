@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { v4 as uuidv4 } from "uuid";
 
 //- Tasks Store
@@ -29,8 +29,22 @@ const createTasks = () => {
 				targetTask.isCheckedOff = !targetTask.isCheckedOff;
 				return tasks;
 			}),
-		reset: () => set([]),
+		reset: () => {
+			if (get(keepUnfinishedTasks) == true) {
+				return update((tasks) =>
+					tasks.filter((task) => task.isCheckedOff === false)
+				);
+			}
+			return set([]);
+		},
 	};
 };
 
 export const tasks = createTasks();
+
+//- Tasks Configuration Store
+export const resetAfter = writable(false);
+
+export const resetAfterTime = writable("00:00");
+
+export const keepUnfinishedTasks = writable(false);
