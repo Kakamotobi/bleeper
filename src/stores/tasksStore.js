@@ -43,8 +43,8 @@ const createTasks = () => {
 export const tasks = createTasks();
 
 //- Tasks Configuration Store
-export const resetAfter = writable(false);
+export const resetAt = writable(false);
 
-export const resetAfterTime = writable("00:00");
+export const resetAtTime = writable("00:00");
 
 export const keepUnfinishedTasks = writable(false);

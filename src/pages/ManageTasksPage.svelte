@@ -1,8 +1,9 @@
 <script>
+	import { currentTime } from "../stores/stores.js";
 	import {
 		tasks,
-		resetAfter,
-		resetAfterTime,
+		resetAt,
+		resetAtTime,
 		keepUnfinishedTasks,
 	} from "../stores/tasksStore.js";
 	import Section from "../components/Section.svelte";
@@ -22,17 +23,13 @@
 	//- For configuration
 	let intervalId;
 
-	const setResetTime = () => {
-		if ($resetAfter === true) {
+	const startTicking = () => {
+		if ($resetAt === true) {
 			//- If there's already an interval in place, return.
 			if (intervalId) return;
 
 			intervalId = setInterval(() => {
-				const date = new Date();
-				const hours = date.getHours().toString().padStart(2, "0");
-				const minutes = date.getMinutes().toString().padStart(2, "0");
-				const currentTime = `${hours}:${minutes}`;
-				if (currentTime === $resetAfterTime) tasks.reset();
+				if ($currentTime === $resetAtTime) tasks.reset();
 			}, 1000);
 		} else {
 			clearInterval(intervalId);
@@ -40,21 +37,18 @@
 		}
 	};
 
-	const handleResetAfter = () => {
-		$resetAfter = !$resetAfter;
+	const handleResetAt = () => {
+		$resetAt = !$resetAt;
 
-		//- Initialize reset time to midnight.
-		$resetAfterTime = "00:00";
-
-		//- Set interval to reset tasks at time.
-		setResetTime();
+		//- Start checking the clock.
+		startTicking();
 	};
 
 	const handleResetTime = (evt) => {
-		$resetAfterTime = evt.target.value;
+		$resetAtTime = evt.target.value;
 
-		//- Set interval to reset tasks at time.
-		setResetTime();
+		//- Start checking the clock.
+		startTicking();
 	};
 </script>
 
@@ -81,18 +75,14 @@
 
 		<ul slot="content">
 			<li>
-				<input
-					type="checkbox"
-					checked={$resetAfter}
-					on:change={handleResetAfter}
-				/>
-				Reset after time
-				{#if $resetAfter === true}
+				<input type="checkbox" checked={$resetAt} on:change={handleResetAt} />
+				Reset at time
+				{#if $resetAt === true}
 					<ul>
 						<li>
 							Reset at <input
 								type="time"
-								value={$resetAfterTime}
+								value={$resetAtTime}
 								on:change={handleResetTime}
 							/>
 						</li>
