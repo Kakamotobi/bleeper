@@ -10,7 +10,7 @@ const createBleeps = () => {
 		{
 			id: "1",
 			content: "drink water",
-			interval: "60",
+			interval: "1",
 			clickToConfirm: false,
 			isActive: true,
 		},
@@ -50,3 +50,10 @@ const createBleeps = () => {
 };
 
 export const bleeps = createBleeps();
+
+//- Bleeps Configuration Store
+export const setTime = writable(false);
+
+export const startTime = writable("09:00");
+
+export const endTime = writable("18:00");

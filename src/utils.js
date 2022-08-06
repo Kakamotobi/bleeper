@@ -6,3 +6,7 @@ export const isDescendantOf = (targetParentClass, child) => {
 	}
 	return false;
 };
+
+export const formatTime = (time) => {
+	return time.replace(":", "");
+};
