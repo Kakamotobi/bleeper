@@ -12,7 +12,7 @@
 	export let bleep;
 
 	let intervalId = null;
-	let previousInterval = bleep.interval;
+	let prevBleepInterval = bleep.interval;
 
 	//- Dependencies: setTime, currentTime, startTime, endTime, bleep.interval
 	//- If any of these change, this block runs.
@@ -23,58 +23,49 @@
 
 			//- Time Conditions
 			let validTimeCondition;
-			let invalidTimeCondition;
 
 			if (formatTime($startTime) <= formatTime($endTime)) {
 				validTimeCondition =
 					formatTime($currentTime) >= formatTime($startTime) &&
 					formatTime($currentTime) <= formatTime($endTime);
-				invalidTimeCondition =
-					formatTime($currentTime) < formatTime($startTime) ||
-					formatTime($currentTime) > formatTime($endTime);
 			} else {
 				validTimeCondition =
 					formatTime($currentTime) >= formatTime($startTime) ||
 					formatTime($currentTime) <= formatTime($endTime);
-				invalidTimeCondition =
-					formatTime($currentTime) > formatTime($startTime) &&
-					formatTime($currentTime) < formatTime($endTime);
 			}
 
+			//- If currentTime is valid AND (either there is no timer interval in place OR the bleep's interval has been changed).
 			if (
 				validTimeCondition &&
-				(intervalId === null || bleep.interval !== previousInterval)
+				(intervalId === null || bleep.interval !== prevBleepInterval)
 			) {
-				//- If the interval has changed, remove the previous interval that was in place.
-				if (bleep.interval !== previousInterval) {
+				//- If the bleep's interval has changed, remove the previous timer interval that was in place.
+				if (bleep.interval !== prevBleepInterval) {
 					clearInterval(intervalId);
-					previousInterval = bleep.interval;
+					prevBleepInterval = bleep.interval;
 				}
-				//- Start interval for the bleep.
+				//- Start timer interval for the bleep.
 				intervalId = setInterval(() => {
 					// Send bleep notification.
 					console.log(bleep.content, $currentTime);
 				}, bleep.interval * 60000);
 			}
-			//- Else if currentTime is invalid, clear the interval.
-			else if (
-				invalidTimeCondition &&
-				intervalId !== null
-			) {
+			//- Else if currentTime is invalid, clear the timer interval.
+			else if (!validTimeCondition && intervalId !== null) {
 				console.log("Clear interval!");
 				clearInterval(intervalId);
 				intervalId = null;
 			}
 		} else if ($setTime === false) {
 			console.log("Time period is disabled!");
-			//- If there is no interval already in place OR the interval has changed.
-			if (intervalId === null || bleep.interval !== previousInterval) {
-				//- If the interval has changed, remove the previous interval that was in place.
-				if (bleep.interval !== previousInterval) {
+			//- If there is no timer interval already in place OR the bleep's interval has changed.
+			if (intervalId === null || bleep.interval !== prevBleepInterval) {
+				//- If the bleep's interval has changed, remove the previous timer interval that was in place.
+				if (bleep.interval !== prevBleepInterval) {
 					clearInterval(intervalId);
-					previousInterval = bleep.interval;
+					prevBleepInterval = bleep.interval;
 				}
-				//- Start interval for the bleep.
+				//- Start timer interval for the bleep.
 				intervalId = setInterval(() => {
 					// Send bleep notification.
 					console.log(bleep.content, intervalId, $currentTime);
