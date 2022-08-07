@@ -14,6 +14,22 @@
 	let intervalId = null;
 	let prevBleepInterval = bleep.interval;
 
+	//- Start a new timer interval.
+	const startTimerInterval = () => {
+		return setInterval(() => {
+			// Send bleep notification.
+			console.log(bleep.content, intervalId, $currentTime);
+		}, bleep.interval * 60000);
+	};
+
+	//- Remove the timer interval that was in place.
+	const removeTimerInterval = (bleepInterval) => {
+		console.log("Clear timer interval!");
+		clearInterval(intervalId);
+		intervalId = null;
+		prevBleepInterval = bleepInterval;
+	};
+
 	//- Dependencies: setTime, currentTime, startTime, endTime, bleep.interval
 	//- If any of these change, this block runs.
 	//- Objective: check the current time to know when to send a notification.
@@ -41,20 +57,14 @@
 			) {
 				//- If the bleep's interval has changed, remove the previous timer interval that was in place.
 				if (bleep.interval !== prevBleepInterval) {
-					clearInterval(intervalId);
-					prevBleepInterval = bleep.interval;
+					removeTimerInterval(bleep.interval);
 				}
 				//- Start timer interval for the bleep.
-				intervalId = setInterval(() => {
-					// Send bleep notification.
-					console.log(bleep.content, $currentTime);
-				}, bleep.interval * 60000);
+				intervalId = startTimerInterval();
 			}
-			//- Else if currentTime is invalid, clear the timer interval.
+			//- Else if currentTime is invalid, remove the previous timer interval that was in place.
 			else if (!validTimeCondition && intervalId !== null) {
-				console.log("Clear interval!");
-				clearInterval(intervalId);
-				intervalId = null;
+				removeTimerInterval(bleep.interval);
 			}
 		} else if ($setTime === false) {
 			console.log("Time period is disabled!");
@@ -62,14 +72,10 @@
 			if (intervalId === null || bleep.interval !== prevBleepInterval) {
 				//- If the bleep's interval has changed, remove the previous timer interval that was in place.
 				if (bleep.interval !== prevBleepInterval) {
-					clearInterval(intervalId);
-					prevBleepInterval = bleep.interval;
+					removeTimerInterval(bleep.interval);
 				}
 				//- Start timer interval for the bleep.
-				intervalId = setInterval(() => {
-					// Send bleep notification.
-					console.log(bleep.content, intervalId, $currentTime);
-				}, bleep.interval * 60000);
+				intervalId = startTimerInterval();
 			}
 		}
 	}
