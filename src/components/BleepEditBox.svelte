@@ -28,32 +28,29 @@
 <div class="Bleep-edit-box" data-id={bleep.id}>
 	<input
 		type="text"
-		name="content"
-		id="bleep-content"
-		bind:value={bleep.content}
 		placeholder="Enter bleep name"
 		required
+		name="content"
+		bind:value={bleep.content}
 	/>
 	<label for="interval">Interval (mins)</label>
 	<input
 		type="number"
-		name="interval"
-		bind:value={bleep.interval}
 		min="1"
 		required
+		name="interval"
+		bind:value={bleep.interval}
 	/>
 	<label for="clickToConfirm">Click To Confirm</label>
 	<input
 		type="checkbox"
 		name="clickToConfirm"
-		value={bleep.clickToConfirm}
 		bind:checked={bleep.clickToConfirm}
 	/>
 	<label for="isActive">Activate</label>
 	<input
 		type="checkbox"
 		name="isActive"
-		value={bleep.isActive}
 		bind:checked={bleep.isActive}
 	/>
 	<button type="button" on:click={handleRemove}>Remove</button>

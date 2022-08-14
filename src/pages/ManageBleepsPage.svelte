@@ -40,23 +40,23 @@
 <div class="Page">
 	<Section contentType="main-section">
 		<h2 slot="title">Manage Bleeps</h2>
-		
+
 		<Bleeps slot="content" />
 
 		<form slot="form" on:submit|preventDefault={handleSubmit}>
 			<input
 				type="text"
-				bind:value={contentVal}
 				placeholder="Enter bleep name"
 				required
+				bind:value={contentVal}
 			/>
 			<input
-				class="bleep-interval-input"
 				type="number"
-				bind:value={intervalVal}
 				min="1"
 				max="1440"
 				required
+				class="bleep-interval-input"
+				bind:value={intervalVal}
 			/>
 			<button type="submit">Add</button>
 		</form>

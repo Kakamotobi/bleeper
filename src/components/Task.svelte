@@ -21,13 +21,13 @@
 	<div class="check-off">
 		<input
 			type="checkbox"
-			on:change={handleCheckOff}
 			checked={task.isCheckedOff}
+			on:change={handleCheckOff}
 		/>
 	</div>
 	<input
-		class="task-content"
 		type="text"
+		class="task-content"
 		value={task.content}
 		on:blur={handleEditContent}
 	/>

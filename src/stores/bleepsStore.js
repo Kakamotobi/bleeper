@@ -37,8 +37,8 @@ const createBleeps = () => {
 	]);
 	return {
 		subscribe,
-		update: () => update((bleeps) => bleeps),
 		set,
+		update: () => update((bleeps) => bleeps),
 		add: (newBleep) =>
 			update((bleeps) => [
 				{

@@ -1,6 +1,5 @@
 <script>
 	import { bleeps } from "../stores/bleepsStore.js";
-
 	import Bleep from "../components/Bleep.svelte";
 </script>
 
