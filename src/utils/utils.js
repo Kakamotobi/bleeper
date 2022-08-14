@@ -7,6 +7,13 @@ export const isDescendantOf = (targetParentClass, child) => {
 	return false;
 };
 
+export const getTime = () => {
+	const date = new Date();
+	const hours = date.getHours().toString().padStart(2, "0");
+	const minutes = date.getMinutes().toString().padStart(2, "0");
+	return `${hours}:${minutes}`;
+};
+
 export const formatTime = (time) => {
 	return time.replace(":", "");
 };

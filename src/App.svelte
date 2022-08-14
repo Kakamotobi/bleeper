@@ -5,7 +5,11 @@
 	import ManageTasksPage from "./pages/ManageTasksPage.svelte";
 	import ManageBleepsPage from "./pages/ManageBleepsPage.svelte";
 	import SettingsPage from "./pages/SettingsPage.svelte";
+	import BleepIntervals from "./BleepIntervals.svelte";
 </script>
+
+<!-- Bleep intervals logic independent of any given component -->
+<BleepIntervals />
 
 <Navbar />
 <main>

@@ -1,6 +1,7 @@
 <script>
 	import { bleeps, currEdittingBleep } from "../stores/bleepsStore.js";
-	import { isDescendantOf } from "../utils.js";
+	import { removeTimerInterval } from "../utils/bleepUtils.js";
+	import { isDescendantOf } from "../utils/utils.js";
 
 	export let bleep;
 
@@ -18,6 +19,7 @@
 
 	const handleRemove = () => {
 		bleeps.remove(bleep.id);
+		removeTimerInterval(bleep);
 	};
 </script>
 

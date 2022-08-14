@@ -6,7 +6,7 @@
 		endTime,
 	} from "../stores/bleepsStore.js";
 	import Section from "../components/Section.svelte";
-	import Bleep from "../components/Bleep.svelte";
+	import Bleeps from "../components/Bleeps.svelte";
 
 	//- For new bleep
 	let contentVal = "";
@@ -40,14 +40,8 @@
 <div class="Page">
 	<Section contentType="main-section">
 		<h2 slot="title">Manage Bleeps</h2>
-
-		<ul slot="content">
-			{#each $bleeps as bleep}
-				<li>
-					<Bleep bind:bleep />
-				</li>
-			{/each}
-		</ul>
+		
+		<Bleeps slot="content" />
 
 		<form slot="form" on:submit|preventDefault={handleSubmit}>
 			<input
