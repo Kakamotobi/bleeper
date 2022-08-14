@@ -25,30 +25,42 @@
 			}
 
 			for (let bleep of $bleeps) {
-				//- If currentTime is valid AND (either there is no timer interval in place OR the bleep's interval has been changed).
+				//- If currentTime is valid AND (either there is no timer interval in place OR 
+				//- the bleep's interval has been changed) AND the bleep is activated.
 				if (
 					validTime &&
-					(!bleep.intervalID || bleep.interval !== bleep.prevInterval)
+					(!bleep.intervalID || bleep.interval !== bleep.prevInterval) &&
+					bleep.isActive === true
 				) {
 					//- If the bleep's interval has changed, remove the previous timer interval that was in place.
 					if (bleep.interval !== bleep.prevInterval) removeTimerInterval(bleep);
 					//- Start timer interval for the bleep.
 					bleep.intervalID = startTimerInterval(bleep);
 				}
-				//- Else if currentTime is invalid, remove the previous timer interval that was in place.
-				else if (!validTime && bleep.intervalID !== null)
+				//- Else if currentTime is invalid OR the bleep is deactivated,
+				//- remove the previous timer interval that was in place.
+				else if (
+					(!validTime && bleep.intervalID !== null) ||
+					bleep.isActive === false
+				)
 					removeTimerInterval(bleep);
 			}
 		} else if ($setTime === false) {
 			console.log("Time period is disabled!");
 
 			for (let bleep of $bleeps) {
-				//- If there is no timer interval already in place OR the bleep's interval has changed.
-				if (!bleep.intervalID || bleep.interval !== bleep.prevInterval) {
+				//- If (there is no timer interval already in place OR the bleep's interval has changed) AND
+				//- the bleep is activated.
+				if (
+					(!bleep.intervalID || bleep.interval !== bleep.prevInterval) &&
+					bleep.isActive === true
+				) {
 					//- If the bleep's interval has changed, remove the previous timer interval that was in place.
 					if (bleep.interval !== bleep.prevInterval) removeTimerInterval(bleep);
 					//- Start timer interval for the bleep.
 					bleep.intervalID = startTimerInterval(bleep);
+				} else if (bleep.isActive === false) {
+					removeTimerInterval(bleep);
 				}
 			}
 		}
