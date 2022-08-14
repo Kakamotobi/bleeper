@@ -5,9 +5,12 @@
 	import ManageTasksPage from "./pages/ManageTasksPage.svelte";
 	import ManageBleepsPage from "./pages/ManageBleepsPage.svelte";
 	import SettingsPage from "./pages/SettingsPage.svelte";
+	import TasksResetTimer from "./TasksResetTimer.svelte";
 	import BleepIntervals from "./BleepIntervals.svelte";
 </script>
 
+<!-- Tasks reset timer -->
+<TasksResetTimer />
 <!-- Bleep intervals logic independent of any given component -->
 <BleepIntervals />
 

@@ -10,6 +10,7 @@ const createTasks = () => {
 	]);
 	return {
 		subscribe,
+		set,
 		add: (taskContent) =>
 			update((tasks) => [
 				{ id: uuidv4(), content: taskContent, isCheckedOff: false },

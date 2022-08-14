@@ -1,5 +1,4 @@
 <script>
-	import { currentTime } from "../stores/stores.js";
 	import {
 		tasks,
 		resetAt,
@@ -7,7 +6,7 @@
 		keepUnfinishedTasks,
 	} from "../stores/tasksStore.js";
 	import Section from "../components/Section.svelte";
-	import Task from "../components/Task.svelte";
+	import Tasks from "../components/Tasks.svelte";
 
 	//- For new task
 	let inputVal;
@@ -21,34 +20,16 @@
 	};
 
 	//- For configuration
-	let intervalId;
-
-	const startTicking = () => {
-		if ($resetAt === true) {
-			//- If there's already an interval in place, return.
-			if (intervalId) return;
-
-			intervalId = setInterval(() => {
-				if ($currentTime === $resetAtTime) tasks.reset();
-			}, 1000);
-		} else {
-			clearInterval(intervalId);
-			intervalId = null;
-		}
-	};
-
 	const handleResetAt = () => {
 		$resetAt = !$resetAt;
-
-		//- Start checking the clock.
-		startTicking();
 	};
 
 	const handleResetTime = (evt) => {
 		$resetAtTime = evt.target.value;
+	};
 
-		//- Start checking the clock.
-		startTicking();
+	const handleKeepUnfinishedTasks = () => {
+		$keepUnfinishedTasks = !$keepUnfinishedTasks;
 	};
 </script>
 
@@ -56,16 +37,16 @@
 	<Section contentType="main-section">
 		<h2 slot="title">Manage Tasks</h2>
 
-		<ul slot="content">
-			{#each $tasks as task}
-				<li>
-					<Task {task} />
-				</li>
-			{/each}
-		</ul>
+		<Tasks slot="content" />
 
 		<form slot="form" on:submit|preventDefault={handleSubmit}>
-			<input type="text" maxlength="100" bind:value={inputVal} />
+			<input
+				type="text"
+				placeholder="Enter task name"
+				maxlength="100"
+				required
+				bind:value={inputVal}
+			/>
 			<button type="submit">Add</button>
 		</form>
 	</Section>
@@ -90,7 +71,7 @@
 							<input
 								type="checkbox"
 								checked={$keepUnfinishedTasks}
-								on:change={() => ($keepUnfinishedTasks = !$keepUnfinishedTasks)}
+								on:change={handleKeepUnfinishedTasks}
 							/>
 							Keep unfinished tasks
 						</li>
