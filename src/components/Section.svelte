@@ -5,15 +5,19 @@
 <section
 	class={contentType === "main-section" ? "main-section" : "config-section"}
 >
-	<slot name="title" />
+	<div class="wrapper">
+		<slot name="title" />
 
-	<slot name="content">
-		{#if contentType === "main"}
-			<b>There is nothing!</b>
-		{/if}
-	</slot>
+		<slot name="content">
+			{#if contentType === "main-section"}
+				<b>Empty!</b>
+			{/if}
+		</slot>
+	</div>
 
 	<slot name="form" />
+
+	<slot name="info" />
 </section>
 
 <style>
@@ -29,6 +33,13 @@
 		margin-bottom: 20px;
 	}
 
+	.wrapper {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: auto;
+	}
+
 	/* Main Section */
 	.main-section {
 		min-width: 350px;
@@ -37,7 +48,6 @@
 
 	.main-section :global(ul) {
 		flex-grow: 1;
-		overflow: auto;
 	}
 
 	.main-section :global(ul li) {
@@ -73,10 +83,15 @@
 
 	/* Config Section */
 	.config-section {
-		min-width: 300px;
+		width: 100px;
 	}
 
 	.config-section :global(ul) {
 		padding-left: 25px;
+	}
+
+	.config-section :global(em) {
+		padding-left: 25px;
+		color: rgb(184, 184, 184);
 	}
 </style>

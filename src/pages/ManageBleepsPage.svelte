@@ -91,6 +91,10 @@
 				{/if}
 			</li>
 		</ul>
+
+		<em slot="info">
+			* Make sure to allow notifications in your OS to receive bleeps.
+		</em>
 	</Section>
 </div>
 
