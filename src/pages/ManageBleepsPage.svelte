@@ -5,6 +5,7 @@
 		startTime,
 		endTime,
 	} from "../stores/bleepsStore.js";
+	import Page from "../components/Page.svelte";
 	import Section from "../components/Section.svelte";
 	import Bleeps from "../components/Bleeps.svelte";
 
@@ -37,7 +38,7 @@
 	};
 </script>
 
-<div class="Page">
+<Page>
 	<Section contentType="main-section">
 		<h2 slot="title">Manage Bleeps</h2>
 
@@ -96,14 +97,4 @@
 			* Make sure to allow notifications in your OS to receive bleeps.
 		</em>
 	</Section>
-</div>
-
-<style>
-	.Page {
-		height: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 10px;
-	}
-</style>
+</Page>

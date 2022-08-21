@@ -5,6 +5,7 @@
 		resetAtTime,
 		keepUnfinishedTasks,
 	} from "../stores/tasksStore.js";
+	import Page from "../components/Page.svelte";
 	import Section from "../components/Section.svelte";
 	import Tasks from "../components/Tasks.svelte";
 
@@ -33,7 +34,7 @@
 	};
 </script>
 
-<div class="Page">
+<Page>
 	<Section contentType="main-section">
 		<h2 slot="title">Manage Tasks</h2>
 
@@ -80,14 +81,4 @@
 			</li>
 		</ul>
 	</Section>
-</div>
-
-<style>
-	.Page {
-		height: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 10px;
-	}
-</style>
+</Page>
