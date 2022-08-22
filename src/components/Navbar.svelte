@@ -1,11 +1,5 @@
 <script>
 	import { currentPage } from "../stores/stores.js";
-	import HomeIcon from "../../public/assets/HomeIcon.svelte";
-	import TasksIcon from "../../public/assets/TasksIcon.svelte";
-	import BleepsIcon from "../../public/assets/BleepsIcon.svelte";
-	import SettingsIcon from "../../public/assets/SettingsIcon.svelte";
-	import LeftArrow from "../../public/assets/LeftArrow.svelte";
-	import RightArrow from "../../public/assets/RightArrow.svelte";
 
 	let isCollapsed = false;
 
@@ -29,63 +23,58 @@
 			data-name="home"
 			on:click={routeHandler}
 		>
-			<HomeIcon /><span class={isCollapsed && "is-hidden"}>Home</span>
+			<img src="assets/HomeIcon.svg" alt="Home" /><span>Home</span>
 		</li>
 		<li
 			class={$currentPage === "manage-tasks" && "is-selected"}
 			data-name="manage-tasks"
 			on:click={routeHandler}
 		>
-			<TasksIcon /><span class={isCollapsed && "is-hidden"}>Manage Tasks</span>
+			<img src="assets/TasksIcon.svg" alt="Tasks" /><span>Manage Tasks</span>
 		</li>
 		<li
 			class={$currentPage === "manage-bleeps" && "is-selected"}
 			data-name="manage-bleeps"
 			on:click={routeHandler}
 		>
-			<BleepsIcon /><span class={isCollapsed && "is-hidden"}>Manage Bleeps</span
-			>
+			<img src="assets/BleepsIcon.svg" alt="Bleeps" /><span>Manage Bleeps</span>
 		</li>
 		<li
 			class={$currentPage === "settings" && "is-selected"}
 			data-name="settings"
 			on:click={routeHandler}
 		>
-			<SettingsIcon /><span class={isCollapsed && "is-hidden"}>Settings</span>
+			<img src="assets/SettingsIcon.svg" alt="Settings" /><span>Settings</span>
 		</li>
 	</ul>
 
 	<button on:click={expandHandler}>
-		{#if isCollapsed}
-			<RightArrow />
-		{:else}
-			<LeftArrow />
-		{/if}
+		<img
+			src="assets/Arrow.svg"
+			alt="Arrow"
+			class="{isCollapsed && "rotate180"}"
+		/>
 	</button>
 </nav>
 
 <style>
-	.is-hidden {
-		display: none;
-	}
-
 	nav {
-		width: auto;
-		min-width: 200px;
+		width: 200px;
 		padding-top: 50px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		background-color: rgb(238, 238, 238);
-		overflow: hidden;
+		transition: width 250ms ease-out;
 	}
 
 	nav.is-collapsed {
-		min-width: 48px;
+		width: 54px;
 	}
 
 	ul {
 		width: 100%;
+		overflow: hidden;
 	}
 
 	li {
@@ -94,12 +83,12 @@
 		align-items: center;
 		white-space: nowrap;
 		cursor: pointer;
+		transition: padding 150ms ease-out;
 	}
 
 	nav.is-collapsed li {
-		padding-left: 0;
+		padding-left: 15px;
 		padding-right: 0;
-		justify-content: center;
 	}
 
 	li:hover,
@@ -109,12 +98,12 @@
 	}
 
 	li > span {
-		margin-left: 10px;
+		margin-left: 15px;
 	}
 
 	button {
 		height: 46px;
-		padding-right: 10px;
+		padding-right: 15px;
 		background-color: rgb(210, 210, 210);
 		border: none;
 		text-align: right;
@@ -123,5 +112,9 @@
 
 	button:hover {
 		background-color: rgb(188, 188, 188);
+	}
+
+	.rotate180 {
+		transform: rotate(180deg);
 	}
 </style>
