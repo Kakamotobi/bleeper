@@ -1,10 +1,10 @@
 <script>
 	import Page from "../components/Page.svelte";
-	import Section from "../components/Section.svelte";
+	import TasksSection from "../components/TasksSection.svelte";
+	import BleepsSection from "../components/BleepsSection.svelte";
 </script>
 
 <Page>
-	<Section>
-		<h2 slot="title">Home</h2>
-	</Section>
+	<TasksSection />
+	<BleepsSection />
 </Page>
