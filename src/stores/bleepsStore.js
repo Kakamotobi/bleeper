@@ -1,40 +1,40 @@
 import { writable } from "svelte/store";
+import localforage from "localforage";
 import { v4 as uuidv4 } from "uuid";
 
-//- Currently Editting Bleep Store
-export const currEdittingBleep = writable("");
+//- Get Data from LocalForage
+let storedBleeps;
+localforage
+	.getItem("bleeper_bleeps")
+	.then((val) => (storedBleeps = val))
+	.catch((err) => console.log(err));
+
+let storedSetTime;
+localforage
+	.getItem("bleeper_bleeps_config_setTime")
+	.then((val) => (storedSetTime = val))
+	.catch((err) => console.log(err));
+
+let storedStartTime;
+localforage
+	.getItem("bleeper_bleeps_config_startTime")
+	.then((val) => (storedStartTime = val))
+	.catch((err) => console.log(err));
+
+let storedEndTime;
+localforage
+	.getItem("bleeper_bleeps_config_endTime")
+	.then((val) => (storedEndTime = val))
+	.catch((err) => console.log(err));
 
 //- Bleeps Store
 const createBleeps = () => {
-	const { subscribe, update, set } = writable([
-		{
-			id: "1",
-			content: "drink water",
-			interval: "1",
-			prevInterval: null,
-			intervalID: null,
-			clickToConfirm: false,
-			isActive: true,
-		},
-		{
-			id: "2",
-			content: "eye drops",
-			interval: "2",
-			prevInterval: null,
-			intervalID: null,
-			clickToConfirm: false,
-			isActive: true,
-		},
-		{
-			id: "3",
-			content: "stretch",
-			interval: "3",
-			prevInterval: null,
-			intervalID: null,
-			clickToConfirm: false,
-			isActive: true,
-		},
-	]);
+	const { subscribe, update, set } = writable(storedBleeps || []);
+
+	subscribe(async (val) => {
+		await localforage.setItem("bleeper_bleeps", val);
+	});
+
 	return {
 		subscribe,
 		set,
@@ -60,8 +60,51 @@ const createBleeps = () => {
 export const bleeps = createBleeps();
 
 //- Bleeps Configuration Store
-export const setTime = writable(false);
+export const setTime = writable(storedSetTime || false);
+setTime.subscribe(
+	async (val) => await localforage.setItem("bleeper_bleeps_config_setTime", val)
+);
 
-export const startTime = writable("09:00");
+export const startTime = writable(storedStartTime || "09:00");
+startTime.subscribe(
+	async (val) =>
+		await localforage.setItem("bleeper_bleeps_config_startTime", val)
+);
 
-export const endTime = writable("18:00");
+export const endTime = writable(storedEndTime || "18:00");
+endTime.subscribe(
+	async (val) => await localforage.setItem("bleeper_bleeps_config_endTime", val)
+);
+
+//- Currently Editting Bleep Store
+export const currEdittingBleep = writable("");
+
+// [
+// 	{
+// 		id: "1",
+// 		content: "drink water",
+// 		interval: "1",
+// 		prevInterval: null,
+// 		intervalID: null,
+// 		clickToConfirm: false,
+// 		isActive: true,
+// 	},
+// 	{
+// 		id: "2",
+// 		content: "eye drops",
+// 		interval: "2",
+// 		prevInterval: null,
+// 		intervalID: null,
+// 		clickToConfirm: false,
+// 		isActive: true,
+// 	},
+// 	{
+// 		id: "3",
+// 		content: "stretch",
+// 		interval: "3",
+// 		prevInterval: null,
+// 		intervalID: null,
+// 		clickToConfirm: false,
+// 		isActive: true,
+// 	},
+// ]
