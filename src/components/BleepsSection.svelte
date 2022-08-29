@@ -24,7 +24,7 @@
 	<Section contentType="main-section">
 		<h2 slot="title">Manage Bleeps</h2>
 
-		<Bleeps slot="content" />
+		<Bleeps slot="content" displayActiveOnly={false}/>
 
 		<form slot="form" on:submit|preventDefault={handleSubmit}>
 			<input

@@ -2,38 +2,10 @@ import { get, writable } from "svelte/store";
 import localforage from "localforage";
 import { v4 as uuidv4 } from "uuid";
 
-localforage
-	.getItem("blahblah")
-	.then((val) => console.log(val))
-	.catch((err) => console.log(err));
-
-//- Get Data from LocalForage
-let storedTasks;
-localforage
-	.getItem("bleeper_tasks")
-	.then((val) => (storedTasks = val))
-	.catch((err) => console.log(err));
-
-let storedResetAt;
-localforage
-	.getItem("bleeper_tasks_config_resetAt")
-	.then((val) => (storedResetAt = val))
-	.catch((err) => console.log(err));
-
-let storedResetAtTime;
-localforage
-	.getItem("bleeper_tasks_config_resetAtTime")
-	.then((val) => (storedResetAtTime = val))
-	.catch((err) => console.log(err));
-
-let storedKeepUnfinishedTasks;
-localforage
-	.getItem("bleeper_tasks_config_keepUnfinishedTasks")
-	.then((val) => (storedKeepUnfinishedTasks = val))
-	.catch((err) => console.log(err));
-
 //- Tasks Store
-const createTasks = () => {
+const createTasks = async () => {
+	const storedTasks = await localforage.getItem("bleeper_tasks");
+
 	const { subscribe, set, update } = writable(storedTasks || []);
 
 	subscribe(async (val) => {
@@ -73,22 +45,65 @@ const createTasks = () => {
 	};
 };
 
-export const tasks = createTasks();
-
 //- Tasks Configuration Store
-export const resetAt = writable(storedResetAt || false);
-resetAt.subscribe(
-	async (val) => await localforage.setItem("bleeper_tasks_config_resetAt", val)
-);
+const createResetAt = async () => {
+	const storedResetAt = await localforage.getItem(
+		"bleeper_tasks_config_resetAt"
+	);
 
-export const resetAtTime = writable(storedResetAtTime || "00:00");
-resetAtTime.subscribe(
-	async (val) =>
-		await localforage.setItem("bleeper_tasks_config_resetAtTime", val)
-);
+	const { subscribe, set, update } = writable(storedResetAt || false);
 
-export const keepUnfinishedTasks = writable(storedKeepUnfinishedTasks || false);
-keepUnfinishedTasks.subscribe(
-	async (val) =>
-		await localforage.setItem("bleeper_tasks_config_keepUnfinishedTasks", val)
-);
+	subscribe(async (val) => {
+		await localforage.setItem("bleeper_tasks_config_resetAt", val);
+	});
+
+	return {
+		subscribe,
+		set,
+		update,
+	};
+};
+
+const createResetAtTime = async () => {
+	const storedResetAtTime = await localforage.getItem(
+		"bleeper_tasks_config_resetAtTime"
+	);
+
+	const { subscribe, set, update } = writable(storedResetAtTime || "00:00");
+
+	subscribe(async (val) => {
+		await localforage.setItem("bleeper_tasks_config_resetAtTime", val);
+	});
+
+	return {
+		subscribe,
+		set,
+		update,
+	};
+};
+
+const createKeepUnfinishedTasks = async () => {
+	const storedKeepUnfinishedTasks = await localforage.getItem(
+		"bleeper_tasks_config_keepUnfinishedTasks"
+	);
+
+	const { subscribe, set, update } = writable(
+		storedKeepUnfinishedTasks || false
+	);
+
+	subscribe(async (val) => {
+		await localforage.setItem("bleeper_tasks_config_keepUnfinishedTasks", val);
+	});
+
+	return {
+		subscribe,
+		set,
+		update,
+	};
+};
+
+//- Exports
+export const tasks = await createTasks();
+export const resetAt = await createResetAt();
+export const resetAtTime = await createResetAtTime();
+export const keepUnfinishedTasks = await createKeepUnfinishedTasks();

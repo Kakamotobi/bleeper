@@ -1,13 +1,13 @@
 {
-	"$schema": "../node_modules/@tauri-apps/cli/schema.json",
 	"build": {
-		"beforeBuildCommand": "npm run build",
 		"beforeDevCommand": "npm run dev",
-		"devPath": "http://localhost:8080",
-		"distDir": "../public"
+		"beforeBuildCommand": "npm run build",
+		"devPath": "http://localhost:1420",
+		"distDir": "../dist",
+		"withGlobalTauri": false
 	},
 	"package": {
-		"productName": "bleeper",
+		"productName": "Bleeper",
 		"version": "0.1.0"
 	},
 	"tauri": {
@@ -61,7 +61,7 @@
 				"height": 600,
 				"resizable": true,
 				"title": "Bleeper",
-				"width": 950
+				"width": 1000
 			}
 		]
 	}
