@@ -11,7 +11,6 @@
 	//- Dependencies: currentTime, setTime, startTime, endTime, bleep.interval
 	$: {
 		if ($setTime === true) {
-			console.log("Time period is enabled!");
 			//- Time Condition
 			let validTime;
 			if (formatTime($startTime) <= formatTime($endTime)) {
@@ -25,7 +24,7 @@
 			}
 
 			for (let bleep of $bleeps) {
-				//- If currentTime is valid AND (either there is no timer interval in place OR 
+				//- If currentTime is valid AND (either there is no timer interval in place OR
 				//- the bleep's interval has been changed) AND the bleep is activated.
 				if (
 					validTime &&
@@ -46,8 +45,6 @@
 					removeTimerInterval(bleep);
 			}
 		} else if ($setTime === false) {
-			console.log("Time period is disabled!");
-
 			for (let bleep of $bleeps) {
 				//- If (there is no timer interval already in place OR the bleep's interval has changed) AND
 				//- the bleep is activated.

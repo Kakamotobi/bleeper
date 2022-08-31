@@ -32,7 +32,7 @@
 				"icons/icon.ico"
 			],
 			"identifier": "Bleeper",
-			"longDescription": "",
+			"longDescription": "An app to automate remembering. Stay focused by freeing up your brain space. Bleeper includes a tasks manager and a bleeps manager. Use the tasks manager to organize what you need to do. Use the bleeps manager to remind you of repetitive things by the minutes/hours.",
 			"macOS": {
 				"entitlements": null,
 				"exceptionDomain": "",
@@ -41,7 +41,7 @@
 				"signingIdentity": null
 			},
 			"resources": [],
-			"shortDescription": "",
+			"shortDescription": "An app to automate remembering.",
 			"targets": "all",
 			"windows": {
 				"certificateThumbprint": null,
