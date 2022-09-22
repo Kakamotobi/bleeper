@@ -1,5 +1,5 @@
 <script>
-	import { currentPage } from "../stores/stores.js";
+	import { currentPage, theme } from "../stores/stores.js";
 
 	let isCollapsed = false;
 
@@ -23,28 +23,44 @@
 			data-name="home"
 			on:click={routeHandler}
 		>
-			<img src="assets/HomeIcon.svg" alt="Home" /><span>Home</span>
+			<img
+				src="assets/HomeIcon.svg"
+				alt="Home"
+				class={$theme === "dark" && "filter-white"}
+			/><span>Home</span>
 		</li>
 		<li
 			class={$currentPage === "manage-tasks" && "is-selected"}
 			data-name="manage-tasks"
 			on:click={routeHandler}
 		>
-			<img src="assets/TasksIcon.svg" alt="Tasks" /><span>Manage Tasks</span>
+			<img
+				src="assets/TasksIcon.svg"
+				alt="Tasks"
+				class={$theme === "dark" && "filter-white"}
+			/><span>Manage Tasks</span>
 		</li>
 		<li
 			class={$currentPage === "manage-bleeps" && "is-selected"}
 			data-name="manage-bleeps"
 			on:click={routeHandler}
 		>
-			<img src="assets/BleepsIcon.svg" alt="Bleeps" /><span>Manage Bleeps</span>
+			<img
+				src="assets/BleepsIcon.svg"
+				alt="Bleeps"
+				class={$theme === "dark" && "filter-white"}
+			/><span>Manage Bleeps</span>
 		</li>
 		<li
 			class={$currentPage === "settings" && "is-selected"}
 			data-name="settings"
 			on:click={routeHandler}
 		>
-			<img src="assets/SettingsIcon.svg" alt="Settings" /><span>Settings</span>
+			<img
+				src="assets/SettingsIcon.svg"
+				alt="Settings"
+				class={$theme === "dark" && "filter-white"}
+			/><span>Settings</span>
 		</li>
 	</ul>
 
@@ -52,7 +68,9 @@
 		<img
 			src="assets/Arrow.svg"
 			alt="Arrow"
-			class="{isCollapsed && "rotate180"}"
+			class={`${isCollapsed && "rotate180"} ${
+				$theme === "dark" && "filter-white"
+			}`}
 		/>
 	</button>
 </nav>
@@ -64,7 +82,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background-color: rgb(238, 238, 238);
+		background-color: var(--bg-nav);
 		transition: width 250ms ease-out;
 	}
 
@@ -83,7 +101,7 @@
 		align-items: center;
 		white-space: nowrap;
 		cursor: pointer;
-		transition: padding 150ms ease-out;
+		transition: padding 120ms ease-out, background-color 80ms ease-out;
 	}
 
 	nav.is-collapsed li {
@@ -93,8 +111,8 @@
 
 	li:hover,
 	li.is-selected {
-		background-color: rgb(215, 215, 215);
-		color: #747bff;
+		background-color: var(--bg-nav-hover);
+		color: var(--text-active);
 	}
 
 	li > span {
@@ -104,17 +122,14 @@
 	button {
 		height: 46px;
 		padding-right: 15px;
-		background-color: rgb(210, 210, 210);
+		background-color: var(--bg-button);
 		border: none;
 		text-align: right;
 		cursor: pointer;
+		transition: all 80ms ease-out;
 	}
 
 	button:hover {
-		background-color: rgb(188, 188, 188);
-	}
-
-	.rotate180 {
-		transform: rotate(180deg);
+		background-color: var(--bg-button-hover);
 	}
 </style>

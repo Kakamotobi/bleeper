@@ -22,7 +22,7 @@
 	<form slot="form" on:submit|preventDefault={handleSubmit}>
 		<input
 			type="text"
-			placeholder="Enter task name"
+			placeholder="New task..."
 			maxlength="100"
 			required
 			bind:value={inputVal}

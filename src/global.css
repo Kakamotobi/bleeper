@@ -1,5 +1,64 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
 :root {
-	font-size: 14px;
+	--white0: rgb(250, 250, 250);
+	--white1: rgb(247, 247, 247);
+	--grey0: rgb(238, 238, 238);
+	--grey1: rgb(215, 215, 215);
+	--grey2: rgb(198, 198, 198);
+	--grey3: rgb(185, 185, 185);
+	--darkGrey0: rgb(82, 82, 82);
+	--darkGrey1: rgb(70, 70, 70);
+	--darkGrey2: rgb(57, 57, 57);
+	--darkGrey3: rgb(52, 52, 52);
+	--darkGrey3-var: rgba(52, 52, 52, 0.3);
+	--darkGrey4: rgb(49, 49, 49);
+	--black0: rgb(38, 38, 38);
+	--black1: rgb(0, 0, 0);
+	--blue: rgb(116, 123, 255);
+	--red: rgb(255, 90, 90);
+}
+
+.light {
+	--bg: var(--white0);
+	--bg-nav: var(--grey0);
+	--bg-nav-hover: var(--grey1);
+	--bg-input: var(--grey0);
+	--bg-input-hover: var(--grey1);
+	--bg-button: var(--grey2);
+	--bg-button-hover: var(--grey3);
+	--bg-remove-button: var(--red);
+	--bg-box: var(--white1);
+	--bg-box-inactive: var(--grey0);
+	--bg-edit-box: var(--grey0);
+	--edit-box-shadow: var(--grey2);
+	--box-border: var(--grey1);
+	--text-primary: var(--black0);
+	--text-secondary: var(--grey3);
+	--text-active: var(--blue);
+}
+
+.dark {
+	--bg: var(--black0);
+	--bg-nav: var(--darkGrey2);
+	--bg-nav-hover: var(--darkGrey1);
+	--bg-input: var(--darkGrey2);
+	--bg-input-hover: var(--darkGrey1);
+	--bg-button: var(--darkGrey4);
+	--bg-button-hover: var(--darkGrey3);
+	--bg-box: var(--darkGrey3);
+	--bg-box-inactive: var(--darkGrey3-var);
+	--bg-edit-box: var(--darkGrey2);
+	--edit-box-shadow: var(--black1);
+	--box-border: var(--darkGrey2);
+	--text-primary: var(--grey2);
+	--text-secondary: var(--darkGrey0);
+	--text-active: var(--blue);
 }
 
 html,
@@ -7,23 +66,27 @@ body {
 	position: relative;
 	width: 100%;
 	height: 100%;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+	background-color: var(--bg);
+	font-size: 14px;
+	color: var(--text-primary);
 }
 
 body {
 	display: flex;
 	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	transition: background 300ms ease-in-out, color 600ms ease-in-out;
 }
 
 ul {
 	list-style: none;
+}
+
+input,
+button {
+	background-color: var(--bg-input);
+	border: none;
+	outline: none;
+	color: var(--text-primary);
 }
 
 input[type="checkbox"],
@@ -31,6 +94,16 @@ button {
 	cursor: pointer;
 }
 
-input {
-	outline: none;
+input[type="time"] {
+	border-radius: 3px;
+}
+
+/* Shared Dynamic Styles */
+.filter-white {
+	filter: invert(85%) sepia(37%) saturate(0%) hue-rotate(247deg) brightness(86%)
+		contrast(93%);
+}
+
+.rotate180 {
+	transform: rotate(180deg);
 }

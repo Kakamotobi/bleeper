@@ -24,23 +24,27 @@
 	<Section contentType="main-section">
 		<h2 slot="title">Manage Bleeps</h2>
 
-		<Bleeps slot="content" displayActiveOnly={false}/>
+		<Bleeps slot="content" displayActiveOnly={false} />
 
 		<form slot="form" on:submit|preventDefault={handleSubmit}>
 			<input
 				type="text"
-				placeholder="Enter bleep name"
+				placeholder="New bleep..."
+				maxlength="100"
 				required
 				bind:value={contentVal}
 			/>
-			<input
-				type="number"
-				min="1"
-				max="1440"
-				required
-				class="bleep-interval-input"
-				bind:value={intervalVal}
-			/>
+			<div id="intervalWrapper">
+				<label id="intervalLabel" for="interval">Interval (min):</label>
+				<input
+					id="interval"
+					type="number"
+					min="1"
+					max="1440"
+					required
+					bind:value={intervalVal}
+				/>
+			</div>
 			<button type="submit">Add</button>
 		</form>
 	</Section>

@@ -10,7 +10,11 @@
 	};
 </script>
 
-<div class="Bleep" data-id={bleep.id} on:click|stopPropagation={openEditBox}>
+<div
+	class={`Bleep ${!bleep.isActive && "in-active"}`}
+	data-id={bleep.id}
+	on:click|stopPropagation={openEditBox}
+>
 	<p class="content">{bleep.content}</p>
 	<slot name="activation" />
 	{#if $currEdittingBleep === bleep.id}
@@ -22,12 +26,18 @@
 	.Bleep {
 		width: 100%;
 		height: inherit;
-		padding: 8px;
+		padding-inline: 15px;
 		display: flex;
 		align-items: center;
 		position: relative;
-		border: 1px solid rgba(0, 0, 0, 0.26);
+		background-color: var(--bg-box);
+		border: 1px solid var(--box-border);
 		border-radius: 10px;
 		cursor: pointer;
+	}
+
+	.in-active {
+		color: var(--text-secondary);
+		background-color: var(--bg-box-inactive);
 	}
 </style>

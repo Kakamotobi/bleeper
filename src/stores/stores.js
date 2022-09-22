@@ -14,3 +14,6 @@ export const currentTime = readable(null, (set) => {
 
 //- Page Store
 export const currentPage = writable("home");
+
+//- Theme Store
+export const theme = writable("light");

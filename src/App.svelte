@@ -32,10 +32,4 @@
 		padding: 30px;
 		flex-grow: 1;
 	}
-
-	@media (min-width: 640px) {
-		main {
-			background-color: white;
-		}
-	}
 </style>

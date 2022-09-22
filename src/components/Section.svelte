@@ -27,10 +27,7 @@
 		display: flex;
 		flex-direction: column;
 		position: relative;
-	}
-
-	section :global(h2) {
-		margin-bottom: 20px;
+		background-color: inherit;
 	}
 
 	.wrapper {
@@ -38,6 +35,73 @@
 		display: flex;
 		flex-direction: column;
 		overflow: auto;
+	}
+
+	section :global(h2) {
+		margin-bottom: 20px;
+	}
+
+	section :global(form) {
+		width: 100%;
+		height: 35px;
+		display: flex;
+		position: sticky;
+	}
+
+	section :global(form input) {
+		transition: all 80ms ease-in-out;
+	}
+
+	section :global(form input[type="text"]) {
+		height: inherit;
+		padding-inline: 10px;
+		flex-grow: 1;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+		font-size: 1rem;
+	}
+
+	section :global(form #intervalWrapper) {
+		display: flex;
+	}
+
+	section :global(form #intervalLabel) {
+		padding-inline: 10px;
+		display: flex;
+		align-items: center;
+		background-color: var(--bg-input);
+		transition: all 80ms ease-in-out;
+	}
+
+	section :global(form input[type="number"]) {
+		width: 55px;
+		padding-left: 10px;
+		flex-grow: 0;
+	}
+
+	section :global(form button) {
+		width: 12%;
+		max-width: 50px;
+		height: inherit;
+		background-color: var(--bg-button);
+		/* background-color: rgb(238, 238, 238); */
+		border: none;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+		font-size: 0.9rem;
+		transition: all 80ms ease-in-out;
+	}
+
+	section :global(form input[type="text"]:hover),
+	section :global(form input[type="text"]:focus),
+	section :global(form #intervalWrapper:hover > #intervalLabel),
+	section :global(form #intervalWrapper:hover > #interval),
+	section :global(form #interval:focus) {
+		background-color: var(--bg-input-hover);
+	}
+
+	section :global(form button):hover {
+		background-color: var(--bg-button-hover);
 	}
 
 	/* Main Section */
@@ -56,31 +120,6 @@
 		padding-inline: 10px;
 	}
 
-	.main-section :global(form) {
-		width: 100%;
-		height: 35px;
-		display: flex;
-		position: sticky;
-	}
-
-	.main-section :global(form input) {
-		height: inherit;
-		flex-grow: 1;
-		background-color: #f9f9f9;
-		font-size: 1rem;
-	}
-
-	.main-section :global(form .bleep-interval-input) {
-		flex-grow: 0;
-		width: 60px;
-	}
-
-	.main-section :global(form button) {
-		width: 12%;
-		max-width: 50px;
-		height: inherit;
-	}
-
 	/* Config Section */
 	.config-section {
 		width: 100px;
@@ -92,6 +131,6 @@
 
 	.config-section :global(em) {
 		padding-left: 25px;
-		color: rgb(184, 184, 184);
+		color: var(--text-secondary);
 	}
 </style>
