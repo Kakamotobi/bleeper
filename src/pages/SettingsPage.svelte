@@ -3,12 +3,8 @@
 	import Page from "../components/Page.svelte";
 	import Section from "../components/Section.svelte";
 
-	const body = document.querySelector("body");
-
 	const handleDarkModeToggle = () => {
-		body.classList.remove($theme);
-		$theme = $theme === "light" ? "dark" : "light";
-		body.classList.add($theme);
+		theme.update();
 	};
 </script>
 

@@ -1,5 +1,6 @@
 <script>
-	import { currentPage } from "./stores/stores.js";
+	import { onMount } from "svelte";
+	import { currentPage, theme } from "./stores/stores.js";
 	import Navbar from "./components/Navbar.svelte";
 	import HomePage from "./pages/HomePage.svelte";
 	import ManageTasksPage from "./pages/ManageTasksPage.svelte";
@@ -7,6 +8,10 @@
 	import SettingsPage from "./pages/SettingsPage.svelte";
 	import TasksResetTimer from "./TasksResetTimer.svelte";
 	import BleepIntervals from "./BleepIntervals.svelte";
+
+	onMount(() => {
+		theme.initialLoad();
+	})
 </script>
 
 <!-- Tasks reset timer -->
