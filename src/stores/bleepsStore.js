@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable, get } from "svelte/store";
 import localforage from "localforage";
 import { v4 as uuidv4 } from "uuid";
 
@@ -15,22 +15,29 @@ const createBleeps = async () => {
 	return {
 		subscribe,
 		set,
-		update: () => update((bleeps) => bleeps),
+		update,
+		sort: () =>
+			update((bleeps) => bleeps.sort((a, b) => a.interval - b.interval)),
 		add: (newBleep) =>
 			update((bleeps) => [
 				{
 					id: uuidv4(),
 					content: newBleep.content,
 					interval: newBleep.interval,
-					prevInterval: null,
-					intervalID: null,
-					clickToConfirm: false,
+					prevInterval: newBleep.interval,
+					timer: null, //- { id: null }
 					isActive: true,
 				},
 				...bleeps,
 			]),
 		remove: (bleepId) =>
 			update((bleeps) => bleeps.filter((bleep) => bleep.id !== bleepId)),
+		destroyAllTimers: () =>
+			update((bleeps) =>
+				bleeps.map((bleep) => {
+					return { ...bleep, timer: null, prevInterval: bleep.interval };
+				})
+			),
 	};
 };
 
@@ -89,6 +96,7 @@ const createEndTime = async () => {
 	};
 };
 
+//- Exports
 export const bleeps = await createBleeps();
 export const setTime = await createSetTime();
 export const startTime = await createStartTime();

@@ -3,6 +3,7 @@ import {
 	requestPermission,
 	sendNotification,
 } from "@tauri-apps/api/notification";
+import { customSetInterval } from "./utils.js";
 
 //- Notification for bleeps.
 const notify = async (bleep) => {
@@ -17,18 +18,18 @@ const notify = async (bleep) => {
 	}
 };
 
-//- Start a new timer interval for a bleep.
-export const startTimerInterval = (bleep) => {
-	return setInterval(() => {
+//- Start a new timer for the bleep.
+export const startBleepTimer = (bleep) => {
+	bleep.timer = customSetInterval(() => {
 		//- Send bleep notification.
+		console.log(`${bleep.content}, ${new Date()}`);
 		notify(bleep);
 	}, bleep.interval * 60000);
 };
 
-//- Remove the timer interval that was in place for a bleep.
-export const removeTimerInterval = (bleep) => {
-	console.log("Clear timer interval!");
-	clearInterval(bleep.intervalID);
-	bleep.intervalID = null;
+//- Remove the timer that was in place for the bleep.
+export const stopBleepTimer = (bleep) => {
+	clearTimeout(bleep.timer?.id);
+	bleep.timer = null;
 	bleep.prevInterval = bleep.interval;
 };
