@@ -1,6 +1,8 @@
 <script>
+	import { appWindow } from "@tauri-apps/api/window";
 	import { onMount } from "svelte";
 	import { currentPage, theme } from "./stores/stores.js";
+	import { bleeps } from "./stores/bleepsStore.js";
 	import Navbar from "./components/Navbar.svelte";
 	import HomePage from "./pages/HomePage.svelte";
 	import ManageTasksPage from "./pages/ManageTasksPage.svelte";
@@ -11,7 +13,12 @@
 
 	onMount(() => {
 		theme.initialLoad();
-	})
+		bleeps.destroyAllTimers();
+	});
+
+	appWindow.onCloseRequested(async (evt) => {
+		bleeps.destroyAllTimers();
+	});
 </script>
 
 <!-- Tasks reset timer -->

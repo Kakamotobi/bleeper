@@ -1,16 +1,16 @@
 import { readable, writable, get } from "svelte/store";
 import localforage from "localforage";
-import { getTime } from "../utils/utils.js";
+import { getTime, customSetInterval } from "../utils/utils.js";
 
 //- Current Time
 export const currentTime = readable(null, (set) => {
 	set(getTime());
 
-	const intervalId = setInterval(() => {
+	const timer = customSetInterval(() => {
 		set(getTime());
 	}, 1000);
 
-	return () => clearInterval(intervalId);
+	return () => clearTimeout(timer.id);
 });
 
 //- Page Store
