@@ -14,6 +14,7 @@
 	class={`Bleep ${!bleep.isActive && "in-active"}`}
 	data-id={bleep.id}
 	on:click|stopPropagation={openEditBox}
+	on:keydown={openEditBox}
 >
 	<p class="content">{bleep.content}</p>
 	<slot name="activation" />

@@ -22,6 +22,7 @@
 			class={$currentPage === "home" && "is-selected"}
 			data-name="home"
 			on:click={routeHandler}
+			on:keydown={routeHandler}
 		>
 			<img
 				src="assets/HomeIcon.svg"
@@ -33,6 +34,7 @@
 			class={$currentPage === "manage-tasks" && "is-selected"}
 			data-name="manage-tasks"
 			on:click={routeHandler}
+			on:keydown={routeHandler}
 		>
 			<img
 				src="assets/TasksIcon.svg"
@@ -44,6 +46,7 @@
 			class={$currentPage === "manage-bleeps" && "is-selected"}
 			data-name="manage-bleeps"
 			on:click={routeHandler}
+			on:keydown={routeHandler}
 		>
 			<img
 				src="assets/BleepsIcon.svg"
@@ -55,6 +58,7 @@
 			class={$currentPage === "settings" && "is-selected"}
 			data-name="settings"
 			on:click={routeHandler}
+			on:keydown={routeHandler}
 		>
 			<img
 				src="assets/SettingsIcon.svg"
