@@ -5,7 +5,6 @@
 	$: {
 		if ($resetAt === true) {
 			if ($currentTime === $resetAtTime) {
-				console.log("reset");
 				tasks.reset();
 			}
 		}

@@ -15,6 +15,7 @@
 		if (newBleepContent === "") return;
 
 		bleeps.add({ content: newBleepContent, interval: newBleepInterval });
+		bleeps.sort();
 		contentVal = "";
 		intervalVal = 1;
 	};

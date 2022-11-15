@@ -1,6 +1,6 @@
 <script>
 	import { bleeps, currEdittingBleep } from "../stores/bleepsStore.js";
-	import { removeTimerInterval } from "../utils/bleepUtils.js";
+	import { stopBleepTimer } from "../utils/bleepUtils.js";
 	import { isDescendantOf } from "../utils/utils.js";
 
 	export let bleep;
@@ -14,12 +14,13 @@
 		) {
 			//- Close edit box
 			$currEdittingBleep = "";
+			bleeps.sort();
 		}
 	};
 
 	const handleRemove = () => {
 		bleeps.remove(bleep.id);
-		removeTimerInterval(bleep);
+		stopBleepTimer(bleep);
 	};
 </script>
 
@@ -48,11 +49,7 @@
 	</div>
 	<div class="container">
 		<label for="isActive">Active</label>
-		<input
-			type="checkbox"
-			id="isActive"
-			bind:checked={bleep.isActive}
-		/>
+		<input type="checkbox" id="isActive" bind:checked={bleep.isActive} />
 	</div>
 	<div class="container">
 		<button type="button" on:click={handleRemove}>Remove</button>

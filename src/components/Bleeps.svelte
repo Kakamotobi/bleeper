@@ -3,12 +3,10 @@
 	import Bleep from "../components/Bleep.svelte";
 
 	export let displayActiveOnly;
-
-	$: sortedBleeps = $bleeps.sort((a,b) => a.interval - b.interval);
 </script>
 
 <ul>
-	{#each sortedBleeps as bleep}
+	{#each $bleeps as bleep}
 		{#if displayActiveOnly}
 			{#if bleep.isActive}
 				<li>
