@@ -19,48 +19,48 @@
 	};
 
 	const handleRemove = () => {
-		bleeps.remove(bleep.id);
 		stopBleepTimer(bleep);
+		bleeps.remove(bleep.id);
 	};
 </script>
 
 <svelte:window on:click={closeEditBox} />
 
 <div class="Bleep-edit-box" data-id={bleep.id}>
-	<div class="container">
-		<input
+	<ul class="edit-list">
+		<li class="edit-list-item">
+			<input
 			type="text"
 			placeholder="Enter bleep name"
 			required
 			name="content"
 			bind:value={bleep.content}
 		/>
-	</div>
-	<div class="container">
-		<label for="interval">Interval (min):</label>
-		<input
-			type="number"
-			min="1"
-			max="1440"
-			required
-			id="interval"
-			bind:value={bleep.interval}
-		/>
-	</div>
-	<div class="container">
-		<label for="isActive">Active</label>
-		<input type="checkbox" id="isActive" bind:checked={bleep.isActive} />
-	</div>
-	<div class="container">
-		<button type="button" on:click={handleRemove}>Remove</button>
-	</div>
+		</li>
+		<li class="edit-list-item">
+			<label for="interval">Interval (min):</label>
+			<input
+				type="number"
+				min="1"
+				max="1440"
+				required
+				id="interval"
+				bind:value={bleep.interval}
+			/>
+		</li>
+		<li class="edit-list-item">
+			<label for="isActive">Active</label>
+			<input type="checkbox" id="isActive" bind:checked={bleep.isActive} />
+		</li>
+		<li class="edit-list-item">
+			<button type="button" on:click={handleRemove}>Remove</button>
+		</li>
+	</ul>
 </div>
 
 <style>
 	.Bleep-edit-box {
-		width: 160px;
-		display: flex;
-		flex-direction: column;
+		width: 170px;
 		position: absolute;
 		top: -1px;
 		right: -1px;
@@ -72,9 +72,14 @@
 		overflow: hidden;
 	}
 
-	.container {
+	.edit-list {
+		width: inherit;
+	}
+
+	.edit-list-item {
 		width: 100%;
 		height: 100%;
+		margin: 0;
 		padding: 6px 12px 6px;
 		display: flex;
 		justify-content: space-between;
@@ -82,18 +87,18 @@
 		border-bottom: 1px solid var(--edit-box-shadow);
 	}
 
-	.container:first-of-type {
+	.edit-list-item:first-of-type {
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
 
-	.container:last-of-type {
-		padding: 0;
+	.edit-list-item:last-of-type {
+		padding: 3px;
 		border-bottom: none;
 		text-align: center;
 	}
 
-	.container label {
+	.edit-list-item label {
 		font-weight: 500;
 	}
 

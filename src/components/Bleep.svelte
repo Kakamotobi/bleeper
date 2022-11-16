@@ -17,7 +17,6 @@
 	on:keydown={openEditBox}
 >
 	<p class="content">{bleep.content}</p>
-	<slot name="activation" />
 	{#if $currEdittingBleep === bleep.id}
 		<BleepEditBox bind:bleep />
 	{/if}
@@ -26,8 +25,9 @@
 <style>
 	.Bleep {
 		width: 100%;
+		max-width: 400px;
 		height: inherit;
-		padding-inline: 15px;
+		padding: 15px 15px 10px;
 		display: flex;
 		align-items: center;
 		position: relative;
@@ -37,8 +37,32 @@
 		cursor: pointer;
 	}
 
+	.content {
+		width: 100%;
+		white-space: nowrap;
+		overflow-x: scroll;
+	}
+
 	.in-active {
 		color: var(--text-secondary);
 		background-color: var(--bg-box-inactive);
+	}
+
+	::-webkit-scrollbar {
+		height: 5px;
+		opacity: 0;
+	}
+
+	::-webkit-scrollbar-track {
+		background: none;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 2px;
+		background-color: var(--scroll-thumb);
+	}
+
+	.Bleep:hover ::-webkit-scrollbar {
+		opacity: 1;
 	}
 </style>
