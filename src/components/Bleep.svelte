@@ -25,7 +25,6 @@
 <style>
 	.Bleep {
 		width: 100%;
-		max-width: 400px;
 		height: inherit;
 		padding: 15px 15px 10px;
 		display: flex;

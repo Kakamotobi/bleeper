@@ -4,10 +4,18 @@
 
 <style>
 	.Page {
+		width: 100%;
 		height: 100%;
+		padding: 30px;
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 10px;
+		gap: 30px;
+	}
+
+	@media screen and (max-width: 700px) {
+		.Page {
+			flex-direction: column;
+			gap: 50px;
+			overflow: auto;
+		}
 	}
 </style>

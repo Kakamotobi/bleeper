@@ -22,30 +22,32 @@
 
 <style>
 	section {
-		min-width: 350px;
-		height: 100%;
+		width: 100%;
 		display: flex;
 		flex-direction: column;
-		position: relative;
 		background-color: inherit;
 	}
 
 	.wrapper {
+		width: 100%;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
-		overflow: auto;
+		overflow-y: auto;
 	}
 
 	section :global(h2) {
 		margin-bottom: 20px;
 	}
 
+	section :global(ul) {
+		width: 100%;
+	}
+
 	section :global(form) {
 		width: 100%;
 		height: 35px;
 		display: flex;
-		position: sticky;
 	}
 
 	section :global(form input) {
@@ -74,17 +76,17 @@
 	}
 
 	section :global(form input[type="number"]) {
-		width: 55px;
-		padding-left: 10px;
+		width: 45px;
+		padding-left: 5px;
 		flex-grow: 0;
 	}
 
 	section :global(form button) {
 		width: 12%;
 		max-width: 50px;
+		min-width: 40px;
 		height: inherit;
 		background-color: var(--bg-button);
-		/* background-color: rgb(238, 238, 238); */
 		border: none;
 		border-top-right-radius: 3px;
 		border-bottom-right-radius: 3px;
@@ -106,31 +108,47 @@
 
 	/* Main Section */
 	.main-section {
-		min-width: 350px;
-		flex-grow: 1;
-	}
-
-	.main-section :global(ul) {
-		flex-grow: 1;
+		flex-grow: 2;
+		gap: 10px;
 	}
 
 	.main-section :global(ul li) {
+		width: 100%;
 		height: 40px;
 		margin-bottom: 10px;
-		padding-inline: 10px;
 	}
 
 	/* Config Section */
 	.config-section {
-		width: 100px;
+		max-width: 200px;
+		height: 100%;
 	}
 
-	.config-section :global(ul) {
-		padding-left: 25px;
+	.config-section :global(ul li) {
+		padding-left: 10px;
 	}
 
 	.config-section :global(em) {
-		padding-left: 25px;
+		padding-left: 10px;
 		color: var(--text-secondary);
+	}
+
+	/* Media Queries */
+	@media screen and (max-width: 700px) {
+		.wrapper {
+			width: 100%;
+			height: 100%;
+			min-height: 250px;
+			display: flex;
+			flex-direction: column;
+		}
+
+		section :global(form #intervalLabel) {
+			display: none;
+		}
+
+		.config-section {
+			max-width: 100%;
+		}
 	}
 </style>

@@ -27,7 +27,7 @@
 .light {
 	--bg: var(--white0);
 	--bg-nav: var(--grey0);
-	--bg-nav-hover: var(--grey1);
+	--bg-nav-hover: var(--white0);
 	--bg-input: var(--grey0);
 	--bg-input-hover: var(--grey1);
 	--bg-button: var(--grey2);
@@ -47,7 +47,7 @@
 .dark {
 	--bg: var(--black0);
 	--bg-nav: var(--darkGrey2);
-	--bg-nav-hover: var(--darkGrey1);
+	--bg-nav-hover: var(--black0);
 	--bg-input: var(--darkGrey2);
 	--bg-input-hover: var(--darkGrey1);
 	--bg-button: var(--darkGrey4);
@@ -75,7 +75,6 @@ body {
 
 body {
 	display: flex;
-	box-sizing: border-box;
 	transition: background 300ms ease-in-out, color 600ms ease-in-out;
 }
 

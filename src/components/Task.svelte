@@ -72,9 +72,9 @@
 	}
 
 	.task-content {
+		width: 100%;
 		height: 100%;
 		margin-left: 10px;
-		flex-grow: 1;
 		font-size: 1rem;
 		background: transparent;
 		border: none;

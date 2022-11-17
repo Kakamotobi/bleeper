@@ -81,7 +81,7 @@
 
 <style>
 	nav {
-		width: 200px;
+		width: 170px;
 		padding-top: 50px;
 		display: flex;
 		flex-direction: column;
@@ -91,7 +91,7 @@
 	}
 
 	nav.is-collapsed {
-		width: 54px;
+		width: 50px;
 	}
 
 	ul {
@@ -100,7 +100,7 @@
 	}
 
 	li {
-		padding: 15px 30px;
+		padding: 11px 15px;
 		display: flex;
 		align-items: center;
 		white-space: nowrap;
@@ -109,7 +109,7 @@
 	}
 
 	nav.is-collapsed li {
-		padding-left: 15px;
+		padding-left: 13px;
 		padding-right: 0;
 	}
 

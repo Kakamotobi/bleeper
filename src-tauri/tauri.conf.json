@@ -63,8 +63,8 @@
 				"title": "Bleeper",
 				"height": 600,
 				"width": 1000,
-				"minWidth": 500,
-				"minHeight": 400,
+				"minWidth": 510,
+				"minHeight": 390,
 				"resizable": true,
 				"fullscreen": false
 			}

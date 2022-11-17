@@ -36,7 +36,7 @@
 				bind:value={contentVal}
 			/>
 			<div id="intervalWrapper">
-				<label id="intervalLabel" for="interval">Interval (min):</label>
+				<label id="intervalLabel" for="interval">Min:</label>
 				<input
 					id="interval"
 					type="number"
