@@ -67,7 +67,7 @@
 		background-color: var(--bg-edit-box);
 		border: 1px solid var(--box-border);
 		border-radius: 10px;
-		box-shadow: 0 0 5px 0.3px var(--edit-box-shadow);
+		box-shadow: 0 0 5px 0.3px var(--box-shadow);
 		z-index: 2;
 		overflow: hidden;
 	}
@@ -84,7 +84,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		border-bottom: 1px solid var(--edit-box-shadow);
+		border-bottom: 1px solid var(--box-shadow);
 	}
 
 	.edit-list-item:first-of-type {

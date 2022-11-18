@@ -36,7 +36,7 @@
 	--bg-box: var(--white1);
 	--bg-box-inactive: var(--grey0);
 	--bg-edit-box: var(--grey0);
-	--edit-box-shadow: var(--grey2);
+	--box-shadow: var(--grey2);
 	--box-border: var(--grey1);
 	--text-primary: var(--black0);
 	--text-secondary: var(--grey3);
@@ -55,7 +55,7 @@
 	--bg-box: var(--darkGrey3);
 	--bg-box-inactive: var(--darkGrey3-var);
 	--bg-edit-box: var(--darkGrey2);
-	--edit-box-shadow: var(--black1);
+	--box-shadow: var(--black1);
 	--box-border: var(--darkGrey2);
 	--text-primary: var(--grey2);
 	--text-secondary: var(--darkGrey0);

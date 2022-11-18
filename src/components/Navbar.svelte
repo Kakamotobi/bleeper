@@ -96,13 +96,14 @@
 
 	ul {
 		width: 100%;
-		overflow: hidden;
+		box-shadow: 0px 0px 5px 0px var(--box-shadow) inset;
 	}
 
 	li {
 		padding: 11px 15px;
 		display: flex;
 		align-items: center;
+		overflow: hidden;
 		white-space: nowrap;
 		cursor: pointer;
 		transition: padding 120ms ease-out, background-color 80ms ease-out;
@@ -116,11 +117,17 @@
 	li:hover,
 	li.is-selected {
 		background-color: var(--bg-nav-hover);
+		box-shadow: -5px 0px 5px 0px var(--box-shadow);
 		color: var(--text-active);
 	}
 
 	li > span {
 		margin-left: 15px;
+		transition: opacity 120ms ease-out;
+	}
+
+	nav.is-collapsed li > span {
+		opacity: 0;
 	}
 
 	button {
