@@ -130,7 +130,7 @@
 
 	.config-section :global(em) {
 		padding-left: 10px;
-		color: var(--text-secondary);
+		color: var(--text-tertiary);
 	}
 
 	/* Media Queries */

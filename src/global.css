@@ -12,6 +12,7 @@
 	--grey1: rgb(215, 215, 215);
 	--grey2: rgb(198, 198, 198);
 	--grey3: rgb(185, 185, 185);
+	--grey4: rgb(143, 143, 143);
 	--darkGrey0: rgb(82, 82, 82);
 	--darkGrey1: rgb(70, 70, 70);
 	--darkGrey2: rgb(57, 57, 57);
@@ -39,7 +40,8 @@
 	--box-shadow: var(--grey2);
 	--box-border: var(--grey1);
 	--text-primary: var(--black0);
-	--text-secondary: var(--grey3);
+	--text-secondary: var(--darkGrey0);
+	--text-tertiary: var(--grey3);
 	--text-active: var(--blue);
 	--scroll-thumb: var(--grey1);
 }
@@ -58,7 +60,8 @@
 	--box-shadow: var(--black1);
 	--box-border: var(--darkGrey2);
 	--text-primary: var(--grey2);
-	--text-secondary: var(--darkGrey0);
+	--text-secondary: var(--grey4);
+	--text-tertiary: var(--darkGrey0);
 	--text-active: var(--blue);
 	--scroll-thumb: var(--black0);
 }
@@ -103,8 +106,4 @@ input[type="time"] {
 .filter-white {
 	filter: invert(85%) sepia(37%) saturate(0%) hue-rotate(247deg) brightness(86%)
 		contrast(93%);
-}
-
-.rotate180 {
-	transform: rotate(180deg);
 }

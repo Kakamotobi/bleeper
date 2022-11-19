@@ -16,6 +16,18 @@ export const getTime = () => {
 	return `${hours}:${minutes}`;
 };
 
+//- Get the current date.
+export const getDate = () => {
+	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+	const today = new Date();
+	const day = days[today.getDay()];
+	const date = today.getDate();
+	const month = months[today.getMonth()];
+	const year = today.getFullYear();
+	return `${day}, ${date} ${month}. ${year}`;
+}
+
 //- Format time from HH:MM to HHMM.
 export const formatTime = (time) => {
 	return time.replace(":", "");
