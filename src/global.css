@@ -9,10 +9,11 @@
 	--white0: rgb(250, 250, 250);
 	--white1: rgb(247, 247, 247);
 	--grey0: rgb(238, 238, 238);
-	--grey1: rgb(215, 215, 215);
-	--grey2: rgb(198, 198, 198);
-	--grey3: rgb(185, 185, 185);
-	--grey4: rgb(143, 143, 143);
+	--grey1: rgb(233, 233, 233);
+	--grey2: rgb(215, 215, 215);
+	--grey3: rgb(198, 198, 198);
+	--grey4: rgb(185, 185, 185);
+	--grey5: rgb(143, 143, 143);
 	--darkGrey0: rgb(82, 82, 82);
 	--darkGrey1: rgb(70, 70, 70);
 	--darkGrey2: rgb(57, 57, 57);
@@ -30,20 +31,23 @@
 	--bg-nav: var(--grey0);
 	--bg-nav-hover: var(--white0);
 	--bg-input: var(--grey0);
-	--bg-input-hover: var(--grey1);
-	--bg-button: var(--grey2);
-	--bg-button-hover: var(--grey3);
+	--bg-input-hover: var(--grey2);
+	--bg-button: var(--grey3);
+	--bg-button-hover: var(--grey4);
 	--bg-remove-button: var(--red);
 	--bg-box: var(--white1);
 	--bg-box-inactive: var(--grey0);
+	--bg-checkbox: var(--grey1);
+	--bg-checkbox-hover: var(--grey2);
+	--check: var(--darkGrey0);
 	--bg-edit-box: var(--grey0);
-	--box-shadow: var(--grey2);
-	--box-border: var(--grey1);
+	--box-shadow: var(--grey3);
+	--box-border: var(--grey2);
 	--text-primary: var(--black0);
 	--text-secondary: var(--darkGrey0);
-	--text-tertiary: var(--grey3);
+	--text-tertiary: var(--grey4);
 	--text-active: var(--blue);
-	--scroll-thumb: var(--grey1);
+	--scroll-thumb: var(--grey2);
 }
 
 .dark {
@@ -56,11 +60,14 @@
 	--bg-button-hover: var(--darkGrey3);
 	--bg-box: var(--darkGrey3);
 	--bg-box-inactive: var(--darkGrey3-var);
+	--bg-checkbox: var(--darkGrey0);
+	--bg-checkbox-hover: var(--darkGrey1);
+	--check: var(--grey3);
 	--bg-edit-box: var(--darkGrey2);
 	--box-shadow: var(--black1);
 	--box-border: var(--darkGrey2);
-	--text-primary: var(--grey2);
-	--text-secondary: var(--grey4);
+	--text-primary: var(--grey3);
+	--text-secondary: var(--grey5);
 	--text-tertiary: var(--darkGrey0);
 	--text-active: var(--blue);
 	--scroll-thumb: var(--black0);
