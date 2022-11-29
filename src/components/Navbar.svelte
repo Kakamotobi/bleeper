@@ -96,7 +96,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		background-color: var(--bg-nav);
-		transition: width 250ms ease-out;
+		transition: width 150ms ease-out;
 	}
 
 	nav.is-collapsed {
@@ -126,7 +126,7 @@
 		font-size: 0.9rem;
 		color: var(--text-secondary);
 		overflow: hidden;
-		transition: all 250ms ease-out;
+		transition: all 120ms ease-out;
 	}
 
 	nav.is-collapsed .date {
@@ -148,7 +148,7 @@
 		overflow: hidden;
 		white-space: nowrap;
 		cursor: pointer;
-		transition: padding 250ms ease-out, background-color 80ms ease-out;
+		transition: padding 150ms ease-out, background-color 80ms ease-out;
 	}
 
 	nav.is-collapsed li {
