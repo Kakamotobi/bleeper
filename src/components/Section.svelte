@@ -133,6 +133,36 @@
 		color: var(--text-tertiary);
 	}
 
+	.config-section :global(.main-option-wrapper) {
+		margin-bottom: 5px;
+		display: flex;
+		align-items: center;
+	}
+
+	.config-section :global(.checkbox-and-label) {
+		margin-right: 8px;
+		display: flex;
+		align-items: center;
+	}
+
+	.config-section :global(.checkbox-and-label input[type="checkbox"]) {
+		width: 15px;
+		height: 15px;
+	}
+
+	.config-section :global(.checkbox-and-label input[type="checkbox"]::before) {
+		width: 10px;
+		height: 10px;
+	}
+
+	.config-section :global(.checkbox-and-label > span) {
+		margin-left: 5px;
+	}
+
+	.config-section :global(.sub-option) {
+		padding-left: 20px;
+	}
+
 	/* Media Queries */
 	@media screen and (max-width: 700px) {
 		.wrapper {

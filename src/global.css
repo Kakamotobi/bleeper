@@ -114,3 +114,32 @@ input[type="time"] {
 	filter: invert(85%) sepia(37%) saturate(0%) hue-rotate(247deg) brightness(86%)
 		contrast(93%);
 }
+
+/* Checkbox */
+.checkbox-and-label input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+	display: grid;
+	place-content: center;
+	appearance: none;
+	background-color: var(--bg-checkbox);
+	border: 1px solid var(--box-border);
+	border-radius: 5px;
+}
+
+.checkbox-and-label input[type="checkbox"]::before {
+	content: "";
+	transform: scale(0);
+	transition: 120ms transform ease-out;
+	border-radius: 4px;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkbox-and-label input[type="checkbox"]:checked::before {
+	box-shadow: inset 15px 15px var(--check);
+	transform: scale(1);
+}
+
+.checkbox-and-label input[type="checkbox"]:hover {
+	background-color: var(--bg-checkbox-hover);
+}

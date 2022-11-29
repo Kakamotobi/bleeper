@@ -13,21 +13,28 @@
 		<h2 slot="title">Settings</h2>
 		<ul slot="content">
 			<li>
-				<input
-					type="checkbox"
-					id="darkModeToggle"
-					checked={$theme === "dark" ? true : false}
-					on:change={handleDarkModeToggle}
-				/>
-				<label for="darkModeToggle">Dark Mode</label>
+				<label for="darkModeToggle" class="checkbox-and-label">
+					<input
+						type="checkbox"
+						id="darkModeToggle"
+						checked={$theme === "dark" ? true : false}
+						on:change={handleDarkModeToggle}
+					/>
+					<span>Dark Mode</span>
+				</label>
 			</li>
 		</ul>
 	</Section>
 </Page>
 
 <style>
-	label {
-		padding-left: 5px;
-		font-size: 1.1rem;
+	.checkbox-and-label input[type="checkbox"] {
+		width: 18px;
+		height: 18px;
+	}
+
+	.checkbox-and-label > span {
+		margin-left: 10px;
+		font-size: 1.2rem;
 	}
 </style>

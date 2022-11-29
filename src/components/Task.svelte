@@ -19,7 +19,7 @@
 </script>
 
 <div class="Task" data-id={task.id}>
-	<label class="check-off">
+	<label class="checkbox-and-label">
 		<input
 			type="checkbox"
 			checked={task.isCheckedOff}
@@ -58,39 +58,14 @@
 		transform: translateX(0);
 	}
 
-	.check-off {
+	.checkbox-and-label input[type="checkbox"] {
 		width: 20px;
 		height: 20px;
 	}
 
-	.check-off input[type="checkbox"] {
-		width: inherit;
-		height: inherit;
-		display: grid;
-		place-content: center;
-		appearance: none;
-		background-color: var(--bg-checkbox);
-		border: 1px solid var(--box-border);
-		border-radius: 5px;
-	}
-
-	.check-off input[type="checkbox"]::before {
-		content: "";
+	.checkbox-and-label input[type="checkbox"]::before {
 		width: 14px;
 		height: 14px;
-		transform: scale(0);
-		transition: 120ms transform ease-out;
-		border-radius: 4px;
-  	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-	}
-
-	.check-off input[type="checkbox"]:checked::before {
-		box-shadow: inset 15px 15px var(--check);
-		transform: scale(1);
-	}
-
-	.check-off input[type="checkbox"]:hover {
-		background-color: var(--bg-checkbox-hover);
 	}
 
 	.task-content {
