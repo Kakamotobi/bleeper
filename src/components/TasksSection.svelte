@@ -1,7 +1,8 @@
 <script>
+	import { tasks } from "../stores/tasksStore.js";
 	import Section from "./Section.svelte";
 	import Tasks from "./Tasks.svelte";
-	import { tasks } from "../stores/tasksStore.js";
+	import ActionButtons from "./ActionButtons.svelte";
 
 	//- For new task
 	let inputVal;
@@ -17,6 +18,9 @@
 
 <Section contentType="main-section">
 	<h2 slot="title">Tasks</h2>
+
+	<ActionButtons slot="buttons" target="tasks" buttons={["check", "uncheck", "clear"]} />
+
 	<Tasks slot="content" />
 
 	<form slot="form" on:submit|preventDefault={handleSubmit}>

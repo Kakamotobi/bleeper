@@ -43,10 +43,13 @@
 	--bg-button-hover: var(--grey4);
 	--bg-activate-button: var(--blue0);
 	--bg-activate-button-hover: var(--blue1);
+	--border-activate-button: var(--blue1);
 	--bg-deactivate-button: var(--grey4);
 	--bg-deactivate-button-hover: var(--grey5);
+	--border-deactivate-button: var(--grey5);
 	--bg-clear-button: var(--red0);
 	--bg-clear-button-hover: var(--red1);
+	--border-clear-button: var(--red1);
 	--bg-box: var(--white1);
 	--bg-box-inactive: var(--grey0);
 	--bg-checkbox: var(--grey1);
@@ -72,10 +75,13 @@
 	--bg-button-hover: var(--darkGrey3);
 	--bg-activate-button: var(--blue3);
 	--bg-activate-button-hover: var(--blue2);
+	--border-activate-button: var(--blue2);
 	--bg-deactivate-button: var(--darkGrey3);
 	--bg-deactivate-button-hover: var(--darkGrey2);
+	--border-deactivate-button: var(--darkGrey2);
 	--bg-clear-button: var(--red3);
 	--bg-clear-button-hover: var(--red2);
+	--border-clear-button: var(--red2);
 	--bg-box: var(--darkGrey3);
 	--bg-box-inactive: var(--darkGrey3-var);
 	--bg-checkbox: var(--darkGrey0);

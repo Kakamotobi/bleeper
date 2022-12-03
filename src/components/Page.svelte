@@ -11,7 +11,7 @@
 		gap: 30px;
 	}
 
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: 712px) {
 		.Page {
 			flex-direction: column;
 			gap: 50px;

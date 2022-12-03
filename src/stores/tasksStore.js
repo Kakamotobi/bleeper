@@ -17,8 +17,8 @@ const createTasks = async () => {
 		set,
 		add: (taskContent) =>
 			update((tasks) => [
-				{ id: uuidv4(), content: taskContent, isCheckedOff: false },
 				...tasks,
+				{ id: uuidv4(), content: taskContent, isCheckedOff: false },
 			]),
 		edit: (taskId, editedTaskContent) =>
 			update((tasks) => {
@@ -28,12 +28,25 @@ const createTasks = async () => {
 			}),
 		remove: (taskId) =>
 			update((tasks) => tasks.filter((task) => task.id !== taskId)),
+		removeAll: () => update(() => []),
 		checkOff: (taskId) =>
 			update((tasks) => {
 				const targetTask = tasks.find((task) => task.id === taskId);
 				targetTask.isCheckedOff = !targetTask.isCheckedOff;
 				return tasks;
 			}),
+		checkOffAll: () =>
+			update((tasks) =>
+				tasks.map((task) => {
+					return { ...task, isCheckedOff: true };
+				})
+			),
+		uncheckAll: () =>
+			update((tasks) =>
+				tasks.map((task) => {
+					return { ...task, isCheckedOff: false };
+				})
+			),
 		reset: () => {
 			if (get(keepUnfinishedTasks) == true) {
 				return update((tasks) =>

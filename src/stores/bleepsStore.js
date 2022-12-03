@@ -13,7 +13,7 @@ const createBleeps = async () => {
 		await localforage.setItem("bleeper_bleeps", val);
 	});
 
-	return {
+	const bleepsStore = {
 		subscribe,
 		set,
 		update,
@@ -33,6 +33,23 @@ const createBleeps = async () => {
 			]),
 		remove: (bleepId) =>
 			update((bleeps) => bleeps.filter((bleep) => bleep.id !== bleepId)),
+		removeAll: () =>
+			update(() => {
+				bleepsStore.destroyAllTimers();
+				return [];
+			}),
+		activateAll: () =>
+			update((bleeps) =>
+				bleeps.map((bleep) => {
+					return { ...bleep, isActive: true };
+				})
+			),
+		deactivateAll: () =>
+			update((bleeps) =>
+				bleeps.map((bleep) => {
+					return { ...bleep, isActive: false };
+				})
+			),
 		destroyAllTimers: () =>
 			update((bleeps) =>
 				bleeps.map((bleep) => {
@@ -40,7 +57,9 @@ const createBleeps = async () => {
 					return { ...bleep, timer: null, prevInterval: bleep.interval };
 				})
 			),
-	};
+	}
+
+	return bleepsStore;
 };
 
 //- Bleeps Configuration Store

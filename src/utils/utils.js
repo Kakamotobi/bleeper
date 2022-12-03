@@ -61,3 +61,8 @@ export const customSetInterval = (cb, interval) => {
 
 	return idContainer; //- { id: Number }
 };
+
+// Capitalize First Letter
+export const capitalize = (str) => {
+	return str[0].toUpperCase() + str.slice(1);
+}

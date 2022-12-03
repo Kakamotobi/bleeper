@@ -8,6 +8,8 @@
 	<div class="wrapper">
 		<slot name="title" />
 
+		<slot name="buttons" />
+
 		<slot name="content">
 			{#if contentType === "main-section"}
 				<b>Empty!</b>
@@ -37,7 +39,11 @@
 	}
 
 	section :global(h2) {
-		margin-bottom: 20px;
+		margin-bottom: 15px;
+	}
+
+	section :global(.buttons-container) {
+		margin-bottom: 10px;
 	}
 
 	section :global(ul) {
@@ -164,7 +170,7 @@
 	}
 
 	/* Media Queries */
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: 712px) {
 		.wrapper {
 			width: 100%;
 			height: 100%;

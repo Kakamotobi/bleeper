@@ -2,6 +2,7 @@
 	import { bleeps } from "../stores/bleepsStore.js";
 	import { currentPage } from "../stores/stores.js";
 	import Section from "./Section.svelte";
+	import ActionButtons from "./ActionButtons.svelte";
 	import Bleeps from "./Bleeps.svelte";
 
 	//- For new bleep
@@ -25,8 +26,11 @@
 	<Section contentType="main-section">
 		<h2 slot="title">Manage Bleeps</h2>
 
+		<ActionButtons slot="buttons" target="bleeps" buttons={["activate", "deactivate", "clear"]}/>
+
 		<Bleeps slot="content" displayActiveOnly={false} />
 
+		<!-- create a component for this from -->
 		<form slot="form" on:submit|preventDefault={handleSubmit}>
 			<input
 				type="text"
@@ -52,6 +56,9 @@
 {:else}
 	<Section contentType="main-section">
 		<h2 slot="title">Active Bleeps</h2>
+
+		<ActionButtons slot="buttons" target="bleeps" buttons={["activate", "deactivate"]}/>
+
 		<Bleeps slot="content" displayActiveOnly={true} />
 	</Section>
 {/if}
