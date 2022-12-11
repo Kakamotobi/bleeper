@@ -1,7 +1,7 @@
 <script>
-	import Page from "../components/Page.svelte";
-	import BleepsSection from "../components/BleepsSection.svelte";
-	import BleepsConfigSection from "../components/BleepsConfigSection.svelte";
+	import Page from "../components/shared/Page.svelte";
+	import BleepsSection from "../components/bleeps/BleepsSection.svelte";
+	import BleepsConfigSection from "../components/bleeps/BleepsConfigSection.svelte";
 </script>
 
 <Page>

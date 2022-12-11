@@ -1,8 +1,8 @@
 <script>
-	import { tasks } from "../stores/tasksStore.js";
-	import Section from "./Section.svelte";
+	import { tasks } from "../../stores/tasksStore.js";
+	import Section from "../shared/Section.svelte";
 	import Tasks from "./Tasks.svelte";
-	import ActionButtons from "./ActionButtons.svelte";
+	import ActionButtons from "../shared/ActionButtons.svelte";
 
 	//- For new task
 	let inputVal;

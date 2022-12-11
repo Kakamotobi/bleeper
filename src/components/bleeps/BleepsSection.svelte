@@ -1,8 +1,8 @@
 <script>
-	import { bleeps } from "../stores/bleepsStore.js";
-	import { currentPage } from "../stores/stores.js";
-	import Section from "./Section.svelte";
-	import ActionButtons from "./ActionButtons.svelte";
+	import { bleeps } from "../../stores/bleepsStore.js";
+	import { currentPage } from "../../stores/stores.js";
+	import Section from "../shared/Section.svelte";
+	import ActionButtons from "../shared/ActionButtons.svelte";
 	import Bleeps from "./Bleeps.svelte";
 
 	//- For new bleep

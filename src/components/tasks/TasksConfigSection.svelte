@@ -3,8 +3,8 @@
 		resetAt,
 		resetAtTime,
 		keepUnfinishedTasks,
-	} from "../stores/tasksStore.js";
-	import Section from "./Section.svelte";
+	} from "../../stores/tasksStore.js";
+	import Section from "../shared/Section.svelte";
 
 	//- For configuration
 	const handleResetAt = () => {

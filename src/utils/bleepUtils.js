@@ -22,7 +22,6 @@ const notify = async (bleep) => {
 export const startBleepTimer = (bleep) => {
 	bleep.timer = customSetInterval(() => {
 		//- Send bleep notification.
-		console.log(`${bleep.content}, ${new Date()}`);
 		notify(bleep);
 	}, bleep.interval * 60000);
 };

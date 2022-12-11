@@ -1,6 +1,6 @@
 <script>
-	import { setTime, startTime, endTime } from "../stores/bleepsStore.js";
-	import Section from "../components/Section.svelte";
+	import { setTime, startTime, endTime } from "../../stores/bleepsStore.js";
+	import Section from "../shared/Section.svelte";
 
 	//- For configuration
 	const handleSetTime = () => {

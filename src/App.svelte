@@ -8,8 +8,8 @@
 	import ManageTasksPage from "./pages/ManageTasksPage.svelte";
 	import ManageBleepsPage from "./pages/ManageBleepsPage.svelte";
 	import SettingsPage from "./pages/SettingsPage.svelte";
-	import TasksResetTimer from "./TasksResetTimer.svelte";
-	import BleepIntervals from "./BleepIntervals.svelte";
+	import TasksResetTimer from "./timers/TasksResetTimer.svelte";
+	import BleepIntervals from "./timers/BleepIntervals.svelte";
 
 	onMount(() => {
 		theme.initialLoad();

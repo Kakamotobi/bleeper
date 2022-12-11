@@ -1,6 +1,6 @@
 <script>
-	import { bleeps } from "../stores/bleepsStore.js";
-	import Bleep from "../components/Bleep.svelte";
+	import { bleeps } from "../../stores/bleepsStore.js";
+	import Bleep from "./Bleep.svelte";
 
 	export let displayActiveOnly;
 </script>

@@ -1,6 +1,6 @@
 <script>
-	import { tasks } from "../stores/tasksStore.js";
-	import Task from "../components/Task.svelte";
+	import { tasks } from "../../stores/tasksStore.js";
+	import Task from "./Task.svelte";
 </script>
 
 <ul>

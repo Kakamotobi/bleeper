@@ -1,8 +1,8 @@
 <script>
-	import { bleeps, setTime, startTime, endTime } from "./stores/bleepsStore.js";
-	import { currentTime } from "./stores/stores.js";
-	import { startBleepTimer, stopBleepTimer } from "./utils/bleepUtils.js";
-	import { formatTime } from "./utils/utils.js";
+	import { bleeps, setTime, startTime, endTime } from "../stores/bleepsStore.js";
+	import { currentTime } from "../stores/stores.js";
+	import { startBleepTimer, stopBleepTimer } from "../utils/bleepUtils.js";
+	import { formatTime } from "../utils/utils.js";
 
 	//- Set intervals for bleeps
 	//- Dependencies: currentTime, setTime, startTime, endTime, bleep.timer

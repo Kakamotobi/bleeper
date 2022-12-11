@@ -1,6 +1,6 @@
 <script>
-	import { tasks } from "../stores/tasksStore.js";
-	import { theme } from "../stores/stores.js";
+	import { tasks } from "../../stores/tasksStore.js";
+	import { theme } from "../../stores/stores.js";
 
 	export let task;
 

@@ -1,7 +1,7 @@
 <script>
-	import { bleeps } from "../stores/bleepsStore";
-	import { tasks } from "../stores/tasksStore.js";
-	import { capitalize } from "../utils/utils.js";
+	import { bleeps } from "../../stores/bleepsStore";
+	import { tasks } from "../../stores/tasksStore.js";
+	import { capitalize } from "../../utils/utils.js";
 
 	export let action;
 	export let target;

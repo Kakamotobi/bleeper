@@ -1,5 +1,5 @@
 <script>
-	import { currEdittingBleep } from "../stores/bleepsStore.js";
+	import { currEdittingBleep } from "../../stores/bleepsStore.js";
 	import BleepEditBox from "./BleepEditBox.svelte";
 
 	export let bleep;

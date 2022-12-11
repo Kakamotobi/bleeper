@@ -1,7 +1,7 @@
 <script>
-	import { bleeps, currEdittingBleep } from "../stores/bleepsStore.js";
-	import { stopBleepTimer } from "../utils/bleepUtils.js";
-	import { isDescendantOf } from "../utils/utils.js";
+	import { bleeps, currEdittingBleep } from "../../stores/bleepsStore.js";
+	import { stopBleepTimer } from "../../utils/bleepUtils.js";
+	import { isDescendantOf } from "../../utils/utils.js";
 
 	export let bleep;
 
