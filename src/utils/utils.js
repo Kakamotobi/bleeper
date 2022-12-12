@@ -1,3 +1,5 @@
+import { confirm } from "@tauri-apps/api/dialog";
+
 //- Check if an element is a descendant of an element with a particular class.
 export const isDescendantOf = (targetParentClass, child) => {
 	let node = child.parentElement;
@@ -18,7 +20,20 @@ export const getTime = () => {
 
 //- Get the current date.
 export const getDate = () => {
-	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	const months = [
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
+		"May",
+		"Jun",
+		"Jul",
+		"Aug",
+		"Sep",
+		"Oct",
+		"Nov",
+		"Dec",
+	];
 	const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const today = new Date();
 	const day = days[today.getDay()];
@@ -26,7 +41,7 @@ export const getDate = () => {
 	const month = months[today.getMonth()];
 	const year = today.getFullYear();
 	return `${day}, ${date} ${month}. ${year}`;
-}
+};
 
 //- Format time from HH:MM to HHMM.
 export const formatTime = (time) => {
@@ -56,13 +71,24 @@ export const customSetInterval = (cb, interval) => {
 		idContainer.id = setTimeout(tick, addToExpected - delta);
 	}
 
-	//- Initiate timer and store its ID
+	//- Initiate timer and store its ID.
 	idContainer.id = setTimeout(tick, interval);
 
 	return idContainer; //- { id: Number }
 };
 
-// Capitalize First Letter
+//- Capitalize first letter of every word in string.
 export const capitalize = (str) => {
-	return str[0].toUpperCase() + str.slice(1);
-}
+	return str
+		.split(" ")
+		.map((s) => s[0].toUpperCase() + s.slice(1))
+		.join(" ");
+};
+
+//- Confirmation Modal
+export const askConfirmation = async (target) => {
+	return await confirm("This action cannot be reverted. Are you sure?", {
+		title: `Clear ${capitalize(target)}`,
+		type: "warning",
+	});
+};

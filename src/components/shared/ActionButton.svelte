@@ -1,27 +1,27 @@
 <script>
 	import { bleeps } from "../../stores/bleepsStore";
 	import { tasks } from "../../stores/tasksStore.js";
-	import { capitalize } from "../../utils/utils.js";
+	import { askConfirmation, capitalize } from "../../utils/utils.js";
 
 	export let action;
 	export let target;
 
-	const handleAction = () => {
+	const handleAction = async () => {
 		if (target === "bleeps") {
 			if (action === "activate") {
 				bleeps.activateAll();
 			} else if (action === "deactivate") {
 				bleeps.deactivateAll();
 			} else if (action === "clear") {
-				bleeps.removeAll();
+				if (await askConfirmation("all bleeps")) bleeps.removeAll();
 			}
 		} else if (target === "tasks") {
-			if (action === "clear") {
-				tasks.removeAll();
-			} else if (action === "check") {
+			if (action === "check") {
 				tasks.checkOffAll();
 			} else if (action === "uncheck") {
 				tasks.uncheckAll();
+			} else if (action === "clear") {
+				if (await askConfirmation("all tasks")) tasks.removeAll();
 			}
 		}
 	};

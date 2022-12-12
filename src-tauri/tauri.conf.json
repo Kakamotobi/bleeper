@@ -15,6 +15,9 @@
 			"notification": {
 				"all": true
 			},
+			"dialog": {
+				"confirm": true
+			},
 			"window": {
 				"all": true
 			}

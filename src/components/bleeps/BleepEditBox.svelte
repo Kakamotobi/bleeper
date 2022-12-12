@@ -1,7 +1,7 @@
 <script>
 	import { bleeps, currEdittingBleep } from "../../stores/bleepsStore.js";
 	import { stopBleepTimer } from "../../utils/bleepUtils.js";
-	import { isDescendantOf } from "../../utils/utils.js";
+	import { askConfirmation, isDescendantOf } from "../../utils/utils.js";
 
 	export let bleep;
 
@@ -18,9 +18,11 @@
 		}
 	};
 
-	const handleRemove = () => {
-		stopBleepTimer(bleep);
-		bleeps.remove(bleep.id);
+	const handleRemove = async () => {
+		if (await askConfirmation("bleep")) {
+			stopBleepTimer(bleep);
+			bleeps.remove(bleep.id);
+		}
 	};
 </script>
 
@@ -30,12 +32,12 @@
 	<ul class="edit-list">
 		<li class="edit-list-item">
 			<input
-			type="text"
-			placeholder="Enter bleep name"
-			required
-			name="content"
-			bind:value={bleep.content}
-		/>
+				type="text"
+				placeholder="Enter bleep name"
+				required
+				name="content"
+				bind:value={bleep.content}
+			/>
 		</li>
 		<li class="edit-list-item">
 			<label for="interval">Interval (min):</label>

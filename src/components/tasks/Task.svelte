@@ -1,6 +1,7 @@
 <script>
 	import { tasks } from "../../stores/tasksStore.js";
 	import { theme } from "../../stores/stores.js";
+	import { askConfirmation } from "../../utils/utils.js";
 
 	export let task;
 
@@ -13,8 +14,8 @@
 		if (inputVal !== "") tasks.edit(task.id, inputVal);
 	};
 
-	const handleRemove = (evt) => {
-		tasks.remove(task.id);
+	const handleRemove = async (evt) => {
+		if (await askConfirmation("task")) tasks.remove(task.id);
 	};
 </script>
 
