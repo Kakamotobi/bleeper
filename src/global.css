@@ -117,6 +117,7 @@ ul {
 }
 
 input,
+select,
 button {
 	background-color: var(--bg-input);
 	border: none;
@@ -131,6 +132,16 @@ button {
 
 input[type="time"] {
 	border-radius: 3px;
+}
+
+select {
+	appearance: none;
+	padding: 3px 12px;
+	transition: all 80ms ease-in-out;
+}
+
+select:hover {
+	background-color: var(--bg-input-hover);
 }
 
 /* Shared Dynamic Styles */

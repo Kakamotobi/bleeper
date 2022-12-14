@@ -139,6 +139,10 @@
 		color: var(--text-tertiary);
 	}
 
+	.config-section :global(.main-option) {
+		margin-bottom: 15px;
+	}
+
 	.config-section :global(.main-option-wrapper) {
 		margin-bottom: 5px;
 		display: flex;

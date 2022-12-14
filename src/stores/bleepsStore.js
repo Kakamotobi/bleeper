@@ -57,7 +57,7 @@ const createBleeps = async () => {
 					return { ...bleep, timer: null, prevInterval: bleep.interval };
 				})
 			),
-	}
+	};
 
 	return bleepsStore;
 };
@@ -117,11 +117,56 @@ const createEndTime = async () => {
 	};
 };
 
+const createSetNotificationSound = async () => {
+	const storedSetNotificationSound = await localforage.getItem(
+		"bleeper_bleeps_config_setNotificationSound"
+	);
+
+	const { subscribe, update, set } = writable(
+		storedSetNotificationSound || false
+	);
+
+	subscribe(async (val) => {
+		await localforage.setItem(
+			"bleeper_bleeps_config_setNotificationSound",
+			val
+		);
+	});
+
+	return {
+		subscribe,
+		update,
+		set,
+	};
+};
+
+const createNotificationSound = async () => {
+	const storedNotificationSound = await localforage.getItem(
+		"bleeper_bleeps_config_notificationSound"
+	);
+
+	const { subscribe, update, set } = writable(
+		storedNotificationSound || "bleep-sound1"
+	);
+
+	subscribe(async (val) => {
+		await localforage.setItem("bleeper_bleeps_config_notificationSound", val);
+	});
+
+	return {
+		subscribe,
+		set,
+		update,
+	};
+};
+
 //- Exports
 export const bleeps = await createBleeps();
 export const setTime = await createSetTime();
 export const startTime = await createStartTime();
 export const endTime = await createEndTime();
+export const setNotificationSound = await createSetNotificationSound();
+export const notificationSound = await createNotificationSound();
 
 //- Currently Editting Bleep Store
 export const currEdittingBleep = writable("");

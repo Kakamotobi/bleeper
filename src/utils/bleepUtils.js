@@ -3,6 +3,11 @@ import {
 	requestPermission,
 	sendNotification,
 } from "@tauri-apps/api/notification";
+import { get } from "svelte/store";
+import {
+	setNotificationSound,
+	notificationSound,
+} from "../stores/bleepsStore.js";
 import { customSetInterval } from "./utils.js";
 
 //- Notification for bleeps.
@@ -14,7 +19,16 @@ const notify = async (bleep) => {
 	}
 
 	if (permissionGranted) {
+		const notificationSoundName = get(notificationSound);
+		const notificationAudio =
+			get(setNotificationSound) && notificationSoundName
+				? new Audio(
+						`/assets/notification-sounds/bleeps/${notificationSoundName}.mp3`
+				  )
+				: undefined;
+		if (notificationAudio) await notificationAudio.play();
 		sendNotification({ title: "Bleep!", body: bleep.content });
+		if (notificationAudio) notificationAudio.pause();
 	}
 };
 
