@@ -36,7 +36,7 @@
 		type="button"
 		class={`remove-btn ${$theme === "dark" && "filter-white"}`}
 		on:click={handleRemove}
-		><img src="assets/RemoveIcon.svg" alt="Remove" /></button
+		><img src="assets/icons/RemoveIcon.svg" alt="Remove" /></button
 	>
 </div>
 

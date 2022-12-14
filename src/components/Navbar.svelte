@@ -36,7 +36,7 @@
 				on:keydown={routeHandler}
 			>
 				<img
-					src="assets/HomeIcon.svg"
+					src="assets/icons/HomeIcon.svg"
 					alt="Home"
 					class={$theme === "dark" && "filter-white"}
 				/><span>Home</span>
@@ -48,7 +48,7 @@
 				on:keydown={routeHandler}
 			>
 				<img
-					src="assets/TasksIcon.svg"
+					src="assets/icons/TasksIcon.svg"
 					alt="Tasks"
 					class={$theme === "dark" && "filter-white"}
 				/><span>Manage Tasks</span>
@@ -60,7 +60,7 @@
 				on:keydown={routeHandler}
 			>
 				<img
-					src="assets/BleepsIcon.svg"
+					src="assets/icons/BleepsIcon.svg"
 					alt="Bleeps"
 					class={$theme === "dark" && "filter-white"}
 				/><span>Manage Bleeps</span>
@@ -72,7 +72,7 @@
 				on:keydown={routeHandler}
 			>
 				<img
-					src="assets/SettingsIcon.svg"
+					src="assets/icons/SettingsIcon.svg"
 					alt="Settings"
 					class={$theme === "dark" && "filter-white"}
 				/><span>Settings</span>
@@ -82,7 +82,7 @@
 
 	<button on:click={expandHandler}>
 		<img
-			src="assets/Arrow.svg"
+			src="assets/icons/Arrow.svg"
 			alt="Arrow"
 			class={$theme === "dark" && "filter-white"}
 		/>
