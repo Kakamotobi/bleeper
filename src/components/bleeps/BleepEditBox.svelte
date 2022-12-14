@@ -18,11 +18,9 @@
 		}
 	};
 
-	const handleRemove = async () => {
-		if (await askConfirmation("bleep")) {
+	const handleRemove = () => {
 			stopBleepTimer(bleep);
 			bleeps.remove(bleep.id);
-		}
 	};
 </script>
 
