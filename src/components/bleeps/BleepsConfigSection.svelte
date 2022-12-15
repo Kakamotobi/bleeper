@@ -99,7 +99,7 @@
 					<ul class="sub-options">
 						<li class="sub-option">
 							<label for="sound-select">
-								<span>Bleep Sound:</span>
+								<span>Bleep Sound</span>
 								<select
 									name="notification-sound"
 									id="sound-select"

@@ -41,6 +41,8 @@
 	--bg-input-hover: var(--grey2);
 	--bg-button: var(--grey3);
 	--bg-button-hover: var(--grey4);
+	--bg-input-button: var(--grey2);
+	--bg-input-button-hover: var(--grey3);
 	--bg-activate-button: var(--blue0);
 	--bg-activate-button-hover: var(--blue1);
 	--border-activate-button: var(--blue1);
@@ -73,6 +75,8 @@
 	--bg-input-hover: var(--darkGrey1);
 	--bg-button: var(--darkGrey4);
 	--bg-button-hover: var(--darkGrey3);
+	--bg-input-button: var(--darkGrey3);
+	--bg-input-button-hover: var(--darkGrey1);
 	--bg-activate-button: var(--blue3);
 	--bg-activate-button-hover: var(--blue2);
 	--border-activate-button: var(--blue2);
@@ -131,12 +135,13 @@ button {
 }
 
 input[type="time"] {
+	padding-inline: 3px;
 	border-radius: 3px;
 }
 
 select {
 	appearance: none;
-	padding: 3px 12px;
+	padding: 3px 10px;
 	transition: all 80ms ease-in-out;
 }
 

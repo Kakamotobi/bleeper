@@ -69,12 +69,19 @@
 		font-size: 1rem;
 	}
 
-	section :global(form #intervalWrapper) {
+	section :global(form input[type="text"]:hover),
+	section :global(form input[type="text"]:focus),
+	section :global(form input[type="number"]:hover),
+	section :global(form input[type="number"]:focus) {
+		background-color: var(--bg-input-hover);
+	}
+
+	section :global(form #number-input-container) {
 		display: flex;
 	}
 
-	section :global(form #intervalLabel) {
-		padding-inline: 10px;
+	section :global(form #interval-label) {
+		padding-inline: 5px;
 		display: flex;
 		align-items: center;
 		background-color: var(--bg-input);
@@ -82,9 +89,37 @@
 	}
 
 	section :global(form input[type="number"]) {
-		width: 45px;
-		padding-left: 5px;
+		width: 38px;
+		height: inherit;
+		padding-right: 8px;
 		flex-grow: 0;
+		text-align: right;
+	}
+
+	section :global(form input[type="number"]::-webkit-inner-spin-button),
+	section :global(form input[type="number"]::-webkit-outer-spin-button) {
+		appearance: none;
+	}
+
+	section :global(form .number-input-btns) {
+		width: 15px;
+		height: inherit;
+		display: flex;
+		flex-direction: column;
+	}
+
+	section :global(form .number-input-btns .number-input-btn) {
+		width: inherit;
+		height: 50%;
+		min-width: 0;
+		background-color: var(--bg-input-button);
+		border-radius: 0;
+		text-align: center;
+		transition: all 80ms ease-in-out;
+	}
+
+	section :global(form .number-input-btn:hover) {
+		background-color: var(--bg-input-button-hover);
 	}
 
 	section :global(form button) {
@@ -98,14 +133,6 @@
 		border-bottom-right-radius: 3px;
 		font-size: 0.9rem;
 		transition: all 80ms ease-in-out;
-	}
-
-	section :global(form input[type="text"]:hover),
-	section :global(form input[type="text"]:focus),
-	section :global(form #intervalWrapper:hover > #intervalLabel),
-	section :global(form #intervalWrapper:hover > #interval),
-	section :global(form #interval:focus) {
-		background-color: var(--bg-input-hover);
 	}
 
 	section :global(form button):hover {
@@ -126,7 +153,7 @@
 
 	/* Config Section */
 	.config-section {
-		max-width: 200px;
+		max-width: 210px;
 		height: 100%;
 	}
 
@@ -171,9 +198,18 @@
 
 	.config-section :global(.sub-option) {
 		padding-left: 20px;
+		display: flex;
+		gap: 5px;
 	}
 
 	/* Media Queries */
+	@media screen and (max-width: 780px) {
+		.config-section :global(.sub-option) {
+			flex-direction: column;
+			gap: 0;
+		}
+	}
+
 	@media screen and (max-width: 712px) {
 		.wrapper {
 			width: 100%;
@@ -189,6 +225,11 @@
 
 		.config-section {
 			max-width: 100%;
+		}
+
+		.config-section :global(.sub-option) {
+			flex-direction: row;
+			gap: 5px;
 		}
 	}
 </style>
