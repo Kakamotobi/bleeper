@@ -1,7 +1,7 @@
 <script>
-	import Section from "../shared/Section.svelte";
+	import Section from "@components/shared/Section.svelte";
+	import ActionButtons from "@components/shared/ActionButtons.svelte";
 	import Tasks from "./Tasks.svelte";
-	import ActionButtons from "../shared/ActionButtons.svelte";
 	import TaskForm from "./TaskForm.svelte";
 </script>
 

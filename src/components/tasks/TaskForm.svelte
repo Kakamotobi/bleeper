@@ -1,5 +1,5 @@
 <script>
-	import { tasks } from "../../stores/tasksStore";
+	import { tasks } from "@stores/index.js";
 
 	let inputVal;
 

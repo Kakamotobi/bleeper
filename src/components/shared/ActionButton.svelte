@@ -1,7 +1,6 @@
 <script>
-	import { bleeps } from "../../stores/bleepsStore";
-	import { tasks } from "../../stores/tasksStore.js";
-	import { askConfirmation, capitalize } from "../../utils/utils.js";
+	import { tasks, bleeps } from "@stores/index.js";
+	import { askConfirmation, capitalize } from "@utils/index.js";
 
 	export let action;
 	export let target;

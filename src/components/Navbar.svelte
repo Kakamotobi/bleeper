@@ -4,7 +4,7 @@
 		currentDate,
 		currentPage,
 		theme,
-	} from "../stores/stores.js";
+	} from "@stores/index.js";
 
 	let isCollapsed = false;
 

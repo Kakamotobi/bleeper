@@ -1,13 +1,12 @@
 <script>
 	import { appWindow } from "@tauri-apps/api/window";
 	import { onMount } from "svelte";
-	import { currentPage, theme } from "./stores/stores.js";
-	import { bleeps } from "./stores/bleepsStore.js";
-	import Navbar from "./components/Navbar.svelte";
-	import HomePage from "./pages/HomePage.svelte";
-	import ManageTasksPage from "./pages/ManageTasksPage.svelte";
-	import ManageBleepsPage from "./pages/ManageBleepsPage.svelte";
-	import SettingsPage from "./pages/SettingsPage.svelte";
+	import { currentPage, theme, bleeps } from "@stores/index.js";
+	import Navbar from "@components/Navbar.svelte";
+	import HomePage from "@pages/HomePage.svelte";
+	import ManageTasksPage from "@pages/ManageTasksPage.svelte";
+	import ManageBleepsPage from "@pages/ManageBleepsPage.svelte";
+	import SettingsPage from "@pages/SettingsPage.svelte";
 	import TasksResetTimer from "./timers/TasksResetTimer.svelte";
 	import BleepIntervals from "./timers/BleepIntervals.svelte";
 

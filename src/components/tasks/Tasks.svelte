@@ -1,5 +1,5 @@
 <script>
-	import { tasks } from "../../stores/tasksStore.js";
+	import { tasks } from "@stores/index.js";
 	import Task from "./Task.svelte";
 </script>
 

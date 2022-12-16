@@ -4,11 +4,8 @@ import {
 	sendNotification,
 } from "@tauri-apps/api/notification";
 import { get } from "svelte/store";
-import {
-	setNotificationSound,
-	notificationSound,
-} from "../stores/bleepsStore.js";
-import { customSetInterval } from "./utils.js";
+import { setNotificationSound, notificationSound } from "@stores/index.js";
+import { customSetInterval } from "./index.js";
 
 //- Notification for bleeps.
 const notify = async (bleep) => {

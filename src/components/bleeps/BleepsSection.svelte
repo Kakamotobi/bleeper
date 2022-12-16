@@ -1,7 +1,7 @@
 <script>
-	import { currentPage } from "../../stores/stores.js";
-	import Section from "../shared/Section.svelte";
-	import ActionButtons from "../shared/ActionButtons.svelte";
+	import { currentPage } from "@stores/index.js";
+	import Section from "@components/shared/Section.svelte";
+	import ActionButtons from "@components/shared/ActionButtons.svelte";
 	import BleepForm from "./BleepForm.svelte";
 	import Bleeps from "./Bleeps.svelte";
 </script>

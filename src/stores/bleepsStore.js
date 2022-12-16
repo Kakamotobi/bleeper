@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 import localforage from "localforage";
 import { v4 as uuidv4 } from "uuid";
-import { stopBleepTimer } from "../utils/bleepUtils.js";
+import { stopBleepTimer } from "@utils/index.js";
 
 //- Bleeps Store
 const createBleeps = async () => {

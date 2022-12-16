@@ -1,6 +1,5 @@
 <script>
-	import { tasks, resetAt, resetAtTime } from "../stores/tasksStore.js";
-	import { currentTime } from "../stores/stores.js";
+	import { currentTime, resetAt, resetAtTime, tasks } from "@stores/index.js";
 
 	$: {
 		if ($resetAt === true) {

@@ -1,10 +1,6 @@
 <script>
-	import {
-		resetAt,
-		resetAtTime,
-		keepUnfinishedTasks,
-	} from "../../stores/tasksStore.js";
-	import Section from "../shared/Section.svelte";
+	import { resetAt, resetAtTime, keepUnfinishedTasks } from "@stores/index.js";
+	import Section from "@components/shared/Section.svelte";
 
 	//- For configuration
 	const handleResetAt = () => {

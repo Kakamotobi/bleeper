@@ -1,7 +1,7 @@
 <script>
-	import { theme } from "../stores/stores.js";
-	import Page from "../components/shared/Page.svelte";
-	import Section from "../components/shared/Section.svelte";
+	import { theme } from "@stores/index.js";
+	import Page from "@components/shared/Page.svelte";
+	import Section from "@components/shared/Section.svelte";
 
 	const handleDarkModeToggle = () => {
 		theme.update();

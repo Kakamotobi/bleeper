@@ -1,5 +1,5 @@
 <script>
-	import { bleeps } from "../../stores/bleepsStore";
+	import { bleeps } from "@stores/index.js";
 
 	let contentVal = "";
 	let intervalVal = 1;

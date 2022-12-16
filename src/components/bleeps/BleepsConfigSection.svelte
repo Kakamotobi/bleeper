@@ -5,8 +5,8 @@
 		endTime,
 		setNotificationSound,
 		notificationSound,
-	} from "../../stores/bleepsStore.js";
-	import Section from "../shared/Section.svelte";
+	} from "@stores/index.js";
+	import Section from "@components/shared/Section.svelte";
 
 	//- For configuration
 	const handleSetTime = () => {
