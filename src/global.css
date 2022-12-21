@@ -1,185 +1,184 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
 
 :root {
-	--white0: rgb(250, 250, 250);
-	--white1: rgb(247, 247, 247);
-	--grey0: rgb(238, 238, 238);
-	--grey1: rgb(233, 233, 233);
-	--grey2: rgb(215, 215, 215);
-	--grey3: rgb(198, 198, 198);
-	--grey4: rgb(185, 185, 185);
-	--grey5: rgb(168, 168, 168);
-	--grey6: rgb(143, 143, 143);
-	--darkGrey0: rgb(82, 82, 82);
-	--darkGrey1: rgb(70, 70, 70);
-	--darkGrey2: rgb(57, 57, 57);
-	--darkGrey3: rgb(52, 52, 52);
-	--darkGrey3-var: rgba(52, 52, 52, 0.3);
-	--darkGrey4: rgb(49, 49, 49);
-	--black0: rgb(38, 38, 38);
-	--black1: rgb(0, 0, 0);
-	--blue0: rgb(183, 207, 255);
-	--blue1: rgb(146, 183, 255);
-	--blue2: rgb(116, 123, 255);
-	--blue3: rgb(100, 108, 255);
-	--red0: rgb(255, 189, 189);
-	--red1: rgb(255, 154, 154);
-	--red2: rgb(255, 110, 110);
-	--red3: rgb(255, 95, 95);
+  --white0: rgb(250, 250, 250);
+  --white1: rgb(247, 247, 247);
+  --grey0: rgb(238, 238, 238);
+  --grey1: rgb(233, 233, 233);
+  --grey2: rgb(215, 215, 215);
+  --grey3: rgb(198, 198, 198);
+  --grey4: rgb(185, 185, 185);
+  --grey5: rgb(168, 168, 168);
+  --grey6: rgb(143, 143, 143);
+  --darkGrey0: rgb(82, 82, 82);
+  --darkGrey1: rgb(70, 70, 70);
+  --darkGrey2: rgb(57, 57, 57);
+  --darkGrey3: rgb(52, 52, 52);
+  --darkGrey3-var: rgba(52, 52, 52, 0.3);
+  --darkGrey4: rgb(49, 49, 49);
+  --black0: rgb(38, 38, 38);
+  --black1: rgb(0, 0, 0);
+  --blue0: rgb(183, 207, 255);
+  --blue1: rgb(146, 183, 255);
+  --blue2: rgb(116, 123, 255);
+  --blue3: rgb(100, 108, 255);
+  --red0: rgb(255, 189, 189);
+  --red1: rgb(255, 154, 154);
+  --red2: rgb(255, 110, 110);
+  --red3: rgb(255, 95, 95);
 }
 
 .light {
-	--bg: var(--white0);
-	--bg-nav: var(--grey0);
-	--bg-nav-hover: var(--white0);
-	--bg-input: var(--grey0);
-	--bg-input-hover: var(--grey2);
-	--bg-button: var(--grey3);
-	--bg-button-hover: var(--grey4);
-	--bg-input-button: var(--grey2);
-	--bg-input-button-hover: var(--grey3);
-	--bg-activate-button: var(--blue0);
-	--bg-activate-button-hover: var(--blue1);
-	--border-activate-button: var(--blue1);
-	--bg-deactivate-button: var(--grey4);
-	--bg-deactivate-button-hover: var(--grey5);
-	--border-deactivate-button: var(--grey5);
-	--bg-clear-button: var(--red0);
-	--bg-clear-button-hover: var(--red1);
-	--border-clear-button: var(--red1);
-	--bg-box: var(--white1);
-	--bg-box-inactive: var(--grey0);
-	--bg-checkbox: var(--grey1);
-	--bg-checkbox-hover: var(--grey2);
-	--check: var(--darkGrey0);
-	--bg-edit-box: var(--grey0);
-	--box-shadow: var(--grey3);
-	--box-border: var(--grey2);
-	--text-primary: var(--black0);
-	--text-secondary: var(--darkGrey0);
-	--text-tertiary: var(--grey4);
-	--text-active: var(--blue2);
-	--scroll-thumb: var(--grey2);
+  --bg: var(--white0);
+  --bg-nav: var(--grey0);
+  --bg-nav-hover: var(--white0);
+  --bg-input: var(--grey0);
+  --bg-input-hover: var(--grey2);
+  --bg-button: var(--grey3);
+  --bg-button-hover: var(--grey4);
+  --bg-input-button: var(--grey2);
+  --bg-input-button-hover: var(--grey3);
+  --bg-activate-button: var(--blue0);
+  --bg-activate-button-hover: var(--blue1);
+  --border-activate-button: var(--blue1);
+  --bg-deactivate-button: var(--grey4);
+  --bg-deactivate-button-hover: var(--grey5);
+  --border-deactivate-button: var(--grey5);
+  --bg-clear-button: var(--red0);
+  --bg-clear-button-hover: var(--red1);
+  --border-clear-button: var(--red1);
+  --bg-box: var(--white1);
+  --bg-box-inactive: var(--grey0);
+  --bg-checkbox: var(--grey1);
+  --bg-checkbox-hover: var(--grey2);
+  --check: var(--darkGrey0);
+  --bg-edit-box: var(--grey0);
+  --box-shadow: var(--grey3);
+  --box-border: var(--grey2);
+  --text-primary: var(--black0);
+  --text-secondary: var(--darkGrey0);
+  --text-tertiary: var(--grey4);
+  --text-active: var(--blue2);
+  --scroll-thumb: var(--grey2);
 }
 
 .dark {
-	--bg: var(--black0);
-	--bg-nav: var(--darkGrey2);
-	--bg-nav-hover: var(--black0);
-	--bg-input: var(--darkGrey2);
-	--bg-input-hover: var(--darkGrey1);
-	--bg-button: var(--darkGrey4);
-	--bg-button-hover: var(--darkGrey3);
-	--bg-input-button: var(--darkGrey3);
-	--bg-input-button-hover: var(--darkGrey1);
-	--bg-activate-button: var(--blue3);
-	--bg-activate-button-hover: var(--blue2);
-	--border-activate-button: var(--blue2);
-	--bg-deactivate-button: var(--darkGrey3);
-	--bg-deactivate-button-hover: var(--darkGrey2);
-	--border-deactivate-button: var(--darkGrey2);
-	--bg-clear-button: var(--red3);
-	--bg-clear-button-hover: var(--red2);
-	--border-clear-button: var(--red2);
-	--bg-box: var(--darkGrey3);
-	--bg-box-inactive: var(--darkGrey3-var);
-	--bg-checkbox: var(--darkGrey0);
-	--bg-checkbox-hover: var(--darkGrey1);
-	--check: var(--grey3);
-	--bg-edit-box: var(--darkGrey2);
-	--box-shadow: var(--black1);
-	--box-border: var(--darkGrey2);
-	--text-primary: var(--grey3);
-	--text-secondary: var(--grey6);
-	--text-tertiary: var(--darkGrey0);
-	--text-active: var(--blue2);
-	--scroll-thumb: var(--black0);
+  --bg: var(--black0);
+  --bg-nav: var(--darkGrey2);
+  --bg-nav-hover: var(--black0);
+  --bg-input: var(--darkGrey2);
+  --bg-input-hover: var(--darkGrey1);
+  --bg-button: var(--darkGrey4);
+  --bg-button-hover: var(--darkGrey3);
+  --bg-input-button: var(--darkGrey3);
+  --bg-input-button-hover: var(--darkGrey1);
+  --bg-activate-button: var(--blue3);
+  --bg-activate-button-hover: var(--blue2);
+  --border-activate-button: var(--blue2);
+  --bg-deactivate-button: var(--darkGrey3);
+  --bg-deactivate-button-hover: var(--darkGrey2);
+  --border-deactivate-button: var(--darkGrey2);
+  --bg-clear-button: var(--red3);
+  --bg-clear-button-hover: var(--red2);
+  --border-clear-button: var(--red2);
+  --bg-box: var(--darkGrey3);
+  --bg-box-inactive: var(--darkGrey3-var);
+  --bg-checkbox: var(--darkGrey0);
+  --bg-checkbox-hover: var(--darkGrey1);
+  --check: var(--grey3);
+  --bg-edit-box: var(--darkGrey2);
+  --box-shadow: var(--black1);
+  --box-border: var(--darkGrey2);
+  --text-primary: var(--grey3);
+  --text-secondary: var(--grey6);
+  --text-tertiary: var(--darkGrey0);
+  --text-active: var(--blue2);
+  --scroll-thumb: var(--black0);
 }
 
 html,
 body {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	background-color: var(--bg);
-	font-size: 14px;
-	color: var(--text-primary);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  font-size: 14px;
+  color: var(--text-primary);
 }
 
 body {
-	display: flex;
-	transition: background 300ms ease-in-out, color 600ms ease-in-out;
+  display: flex;
+  transition: background 300ms ease-in-out, color 600ms ease-in-out;
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 input,
 select,
 button {
-	background-color: var(--bg-input);
-	border: none;
-	outline: none;
-	color: var(--text-primary);
+  background-color: var(--bg-input);
+  border: none;
+  outline: none;
+  color: var(--text-primary);
 }
 
 input[type="checkbox"],
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 input[type="time"] {
-	padding-inline: 3px;
-	border-radius: 3px;
+  padding-inline: 3px;
+  border-radius: 3px;
 }
 
 select {
-	appearance: none;
-	padding: 3px 10px;
-	transition: all 80ms ease-in-out;
+  appearance: none;
+  padding: 3px 10px;
+  transition: all 80ms ease-in-out;
 }
 
 select:hover {
-	background-color: var(--bg-input-hover);
+  background-color: var(--bg-input-hover);
 }
 
 /* Shared Dynamic Styles */
 .filter-white {
-	filter: invert(85%) sepia(37%) saturate(0%) hue-rotate(247deg) brightness(86%)
-		contrast(93%);
+  filter: invert(85%) sepia(37%) saturate(0%) hue-rotate(247deg) brightness(86%) contrast(93%);
 }
 
 /* Checkbox */
 .checkbox-and-label input[type="checkbox"] {
-	width: 15px;
-	height: 15px;
-	display: grid;
-	place-content: center;
-	appearance: none;
-	background-color: var(--bg-checkbox);
-	border: 1px solid var(--box-border);
-	border-radius: 5px;
+  width: 15px;
+  height: 15px;
+  display: grid;
+  place-content: center;
+  appearance: none;
+  background-color: var(--bg-checkbox);
+  border: 1px solid var(--box-border);
+  border-radius: 5px;
 }
 
 .checkbox-and-label input[type="checkbox"]::before {
-	content: "";
-	transform: scale(0);
-	transition: 120ms transform ease-out;
-	border-radius: 4px;
-	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  content: "";
+  transform: scale(0);
+  transition: 120ms transform ease-out;
+  border-radius: 4px;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
 .checkbox-and-label input[type="checkbox"]:checked::before {
-	box-shadow: inset 15px 15px var(--check);
-	transform: scale(1);
+  box-shadow: inset 15px 15px var(--check);
+  transform: scale(1);
 }
 
 .checkbox-and-label input[type="checkbox"]:hover {
-	background-color: var(--bg-checkbox-hover);
+  background-color: var(--bg-checkbox-hover);
 }
