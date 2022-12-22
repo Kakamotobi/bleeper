@@ -1,6 +1,6 @@
 {
   "editor.formatOnSave": true,
-  "files.autoSave": "afterDelay",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.wrappingIndent": "indent"
+  "editor.wrappingIndent": "same",
+  "files.autoSave": "afterDelay"
 }

@@ -1,4 +1,8 @@
-import { isPermissionGranted, requestPermission, sendNotification } from "@tauri-apps/api/notification";
+import {
+  isPermissionGranted,
+  requestPermission,
+  sendNotification,
+} from "@tauri-apps/api/notification";
 import { get } from "svelte/store";
 import { setNotificationSound, notificationSound } from "@stores/index.js";
 import { customSetInterval } from "./index.js";
@@ -15,7 +19,9 @@ const notify = async (bleep) => {
     const notificationSoundName = get(notificationSound);
     const notificationAudio =
       get(setNotificationSound) && notificationSoundName
-        ? new Audio(`/assets/notification-sounds/bleeps/${notificationSoundName}.mp3`)
+        ? new Audio(
+            `/assets/notification-sounds/bleeps/${notificationSoundName}.mp3`
+          )
         : undefined;
     if (notificationAudio) await notificationAudio.play();
     sendNotification({ title: "Bleep!", body: bleep.content });

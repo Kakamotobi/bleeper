@@ -17,7 +17,8 @@ const createBleeps = async () => {
     subscribe,
     set,
     update,
-    sort: () => update((bleeps) => bleeps.sort((a, b) => a.interval - b.interval)),
+    sort: () =>
+      update((bleeps) => bleeps.sort((a, b) => a.interval - b.interval)),
     add: (newBleep) =>
       update((bleeps) => [
         {
@@ -30,7 +31,8 @@ const createBleeps = async () => {
         },
         ...bleeps,
       ]),
-    remove: (bleepId) => update((bleeps) => bleeps.filter((bleep) => bleep.id !== bleepId)),
+    remove: (bleepId) =>
+      update((bleeps) => bleeps.filter((bleep) => bleep.id !== bleepId)),
     removeAll: () =>
       update(() => {
         bleepsStore.destroyAllTimers();
@@ -62,7 +64,9 @@ const createBleeps = async () => {
 
 //- Bleeps Configuration Store
 const createSetTime = async () => {
-  const storedSetTime = await localforage.getItem("bleeper_bleeps_config_setTime");
+  const storedSetTime = await localforage.getItem(
+    "bleeper_bleeps_config_setTime"
+  );
 
   const { subscribe, update, set } = writable(storedSetTime || false);
 
@@ -78,7 +82,9 @@ const createSetTime = async () => {
 };
 
 const createStartTime = async () => {
-  const storedStartTime = await localforage.getItem("bleeper_bleeps_config_startTime");
+  const storedStartTime = await localforage.getItem(
+    "bleeper_bleeps_config_startTime"
+  );
 
   const { subscribe, update, set } = writable(storedStartTime || "09:00");
 
@@ -94,7 +100,9 @@ const createStartTime = async () => {
 };
 
 const createEndTime = async () => {
-  const storedEndTime = await localforage.getItem("bleeper_bleeps_config_endTime");
+  const storedEndTime = await localforage.getItem(
+    "bleeper_bleeps_config_endTime"
+  );
 
   const { subscribe, update, set } = writable(storedEndTime || "18:00");
 
@@ -110,12 +118,19 @@ const createEndTime = async () => {
 };
 
 const createSetNotificationSound = async () => {
-  const storedSetNotificationSound = await localforage.getItem("bleeper_bleeps_config_setNotificationSound");
+  const storedSetNotificationSound = await localforage.getItem(
+    "bleeper_bleeps_config_setNotificationSound"
+  );
 
-  const { subscribe, update, set } = writable(storedSetNotificationSound || false);
+  const { subscribe, update, set } = writable(
+    storedSetNotificationSound || false
+  );
 
   subscribe(async (val) => {
-    await localforage.setItem("bleeper_bleeps_config_setNotificationSound", val);
+    await localforage.setItem(
+      "bleeper_bleeps_config_setNotificationSound",
+      val
+    );
   });
 
   return {
@@ -126,9 +141,13 @@ const createSetNotificationSound = async () => {
 };
 
 const createNotificationSound = async () => {
-  const storedNotificationSound = await localforage.getItem("bleeper_bleeps_config_notificationSound");
+  const storedNotificationSound = await localforage.getItem(
+    "bleeper_bleeps_config_notificationSound"
+  );
 
-  const { subscribe, update, set } = writable(storedNotificationSound || "bleep-sound1");
+  const { subscribe, update, set } = writable(
+    storedNotificationSound || "bleep-sound1"
+  );
 
   subscribe(async (val) => {
     await localforage.setItem("bleeper_bleeps_config_notificationSound", val);
