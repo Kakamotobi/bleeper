@@ -1,25 +1,26 @@
-<h1 style="display: flex">
-  <img src=".github/bleeper-logo.png"  style="width: 53px; margin-right: 8px" />
-  Bleeper
-</h1>
-<br/>
+<img src=".github/bleeper-logo.png" alt="App Icon" align="left" width="180px"/>
 
-<div align="center">
-  <!-- shields -->
-  <!-- downloads -->
-  <a href="https://github.com/Kakamotobi/bleeper/releases">
-    <img src="https://img.shields.io/github/downloads/Kakamotobi/bleeper/total.svg?style=flat" alt="Number of Downloads"/>
-  </a>
-  <!-- version -->
-  <a href="https://github.com/Kakamotobi/bleeper/releases">
-    <img src="https://img.shields.io/github/release-pre/Kakamotobi/bleeper.svg?style=flat" alt="Latest Version"/>
-  </a>
-  <!-- platform -->
-  <a href="https://github.com/Kakamotobi/bleeper">
-    <img src="https://img.shields.io/badge/platform-macos%20%7C%20windows-lightgrey" alt="Supported Platforms"/>
-  </a>
+<div>
+  <h1>Bleeper</h1>
+  
+  <div align="center">
+    <!-- shields -->
+    <!-- downloads -->
+    <a href="https://github.com/Kakamotobi/bleeper/releases">
+      <img src="https://img.shields.io/github/downloads/Kakamotobi/bleeper/total" alt="Number of Downloads"/>
+    </a>
+    <!-- version -->
+    <a href="https://github.com/Kakamotobi/bleeper/releases">
+      <img src="https://img.shields.io/github/v/release/Kakamotobi/bleeper" alt="Latest Version"/>
+    </a>
+    <!-- platform -->
+    <a href="https://github.com/Kakamotobi/bleeper">
+      <img src="https://img.shields.io/badge/platform-macos%20%7C%20windows-lightgrey" alt="Supported Platforms"/>
+    </a>
+  </div>
 </div>
-<br/>
+
+</br>
 
 ## About
 
@@ -47,15 +48,16 @@ Contrary to the popular saying, our brains are not _really_ computers; and there
 3. Open the Bleeper app.
 
 ## Note
-- *Make sure to allow notifications and sound for Bleeper in your OS to receive bleeps.*
+
+- _Make sure to allow notifications and sound for Bleeper in your OS to receive bleeps._
 
 ## Screenshots
 
-<div style="width: 100%; display: flex; align-items:center; overflow-x: scroll;">
-  <img src=".github/01-home.png" width="600px" />
-  <img src=".github/02-tasks.png" width="600px" />
-  <img src=".github/03-bleeps.png" width="600px" />
-  <img src=".github/04-settings.png" width="600px" />
+<div align="center">
+  <img src=".github/01-home.png" width="392px" />
+  <img src=".github/02-tasks.png" width="392px" />
+  <img src=".github/03-bleeps.png" width="392px" />
+  <img src=".github/04-settings.png" width="392px" />
   <img src=".github/05-dark.png" width="310px" />
   <img src=".github/06-notification.png" width="310px" />
 </div>
