@@ -1,76 +1,76 @@
 {
-	"build": {
-		"beforeDevCommand": "npm run dev",
-		"beforeBuildCommand": "npm run build",
-		"devPath": "http://localhost:1420",
-		"distDir": "../dist",
-		"withGlobalTauri": false
-	},
-	"package": {
-		"productName": "Bleeper",
-		"version": "0.1.0"
-	},
-	"tauri": {
-		"allowlist": {
-			"notification": {
-				"all": true
-			},
-			"dialog": {
-				"confirm": true
-			},
-			"window": {
-				"all": true
-			}
-		},
-		"bundle": {
-			"active": true,
-			"category": "Productivity",
-			"copyright": "",
-			"deb": {
-				"depends": []
-			},
-			"externalBin": [],
-			"icon": [
-				"icons/32x32.png",
-				"icons/128x128.png",
-				"icons/128x128@2x.png",
-				"icons/icon.icns",
-				"icons/icon.ico"
-			],
-			"identifier": "Bleeper",
-			"longDescription": "An app to automate remembering. Stay focused by freeing up your brain space. Bleeper includes a tasks manager and a bleeps manager. Use the tasks manager to organize what you need to do. Use the bleeps manager to remind you of repetitive things by the minutes/hours.",
-			"macOS": {
-				"entitlements": null,
-				"exceptionDomain": "",
-				"frameworks": [],
-				"providerShortName": null,
-				"signingIdentity": null
-			},
-			"resources": [],
-			"shortDescription": "An app to automate remembering.",
-			"targets": "all",
-			"windows": {
-				"certificateThumbprint": null,
-				"digestAlgorithm": "sha256",
-				"timestampUrl": ""
-			}
-		},
-		"security": {
-			"csp": null
-		},
-		"updater": {
-			"active": false
-		},
-		"windows": [
-			{
-				"title": "Bleeper",
-				"height": 600,
-				"width": 1000,
-				"minWidth": 510,
-				"minHeight": 390,
-				"resizable": true,
-				"fullscreen": false
-			}
-		]
-	}
+  "build": {
+    "beforeDevCommand": "npm run dev-vite",
+    "beforeBuildCommand": "npm run build-vite",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "Bleeper",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "notification": {
+        "all": true
+      },
+      "dialog": {
+        "confirm": true
+      },
+      "window": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "Productivity",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "Bleeper",
+      "longDescription": "An app to automate remembering. Stay focused by freeing up your brain space. Bleeper includes a tasks manager and a bleeps manager. Use the tasks manager to organize what you need to do. Use the bleeps manager to remind you of repetitive things by the minutes/hours.",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "An app to automate remembering.",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "title": "Bleeper",
+        "height": 600,
+        "width": 1000,
+        "minWidth": 510,
+        "minHeight": 390,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ]
+  }
 }

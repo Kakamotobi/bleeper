@@ -4,14 +4,18 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev-vite": "vite",
+    "build-vite": "vite build",
+    "build:mac-apple-silicon": "tauri build --target aarch64-apple-darwin",
+    "build:mac-intel": "tauri build --target x86_64-apple-darwin",
+    "build:windows": "tauri build",
     "preview": "npm run build && vite preview",
     "tauri": "tauri"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.1.0",
     "localforage": "^1.10.0",
+    "svelte": "^3.53.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -24,7 +28,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-svelte": "^2.14.1",
     "prettier": "^2.8.1",
-    "svelte": "^3.53.1",
     "vite": "^3.2.3"
   }
 }
